@@ -137,12 +137,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
   };
 
   return (
-    <div className="min-h-screen bg-[#F6F6F6] dark:bg-[#1a0a05] flex items-center justify-center p-4 transition-colors">
-      <Card className="w-full max-w-md p-8 text-center bg-[#FEFEFE] dark:bg-[#460C04] border border-[#A4A4A9]/25 dark:border-[#821F0C]/80 shadow-xl">
-        <div className="mb-6 flex flex-col items-center">
-          <AfricaLogo size={42} variant="full" className="mb-3" />
-          <h1 className="text-xl font-black text-[#460C04] dark:text-[#FEFEFE] mt-2 m-0">ETT Malawi Program Portal</h1>
-          <p className="text-xs text-[#A4A4A9] dark:text-[#A4A4A9] mt-1">Ujamaa Pamodzi Africa GBV Prevention</p>
+    <div className="min-h-full bg-[#F6F6F6] dark:bg-[#460C04] flex items-center justify-center p-4">
+      <Card className="w-full max-w-sm p-6">
+        <div className="mb-5 flex flex-col items-center">
+          <AfricaLogo size={36} variant="full" className="mb-2" />
+          <h1 className="text-base font-bold text-black dark:text-white m-0">ETT Malawi Portal</h1>
+          <p className="text-[11px] text-black dark:text-white mt-1 m-0 opacity-60">Staff sign-in</p>
         </div>
 
         {mode === 'choice' && (
@@ -155,16 +155,16 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
 
         {mode === 'login' && (
           <div className="space-y-4">
-            <h2 className="text-sm font-bold text-[#821F0C] dark:text-[#FEFEFE] mb-4 block">Sign In</h2>
+            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 block">Sign In</h2>
             <FInput label="Email address *" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="coordinator@ujamaa.mw" />
             <FInput label="Password *" type="password" value={pass} onChange={e => setPass(e.target.value)} placeholder="••••••••" />
             {err && (
-              <div className="bg-[#A1220B]/5 text-[#A1220B] border border-[#A1220B]/10 rounded-xl p-2.5 text-xs text-left font-bold leading-normal">
+              <div className="bg-red-500/5 text-red-600 border border-red-500/10 rounded-xl p-2.5 text-xs text-left font-bold leading-normal">
                 ⚠️ {err}
               </div>
             )}
             <Btn full onClick={doLogin} disabled={loading}>{loading ? "Signing In..." : "Confirm Sign In"}</Btn>
-            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-[#A4A4A9] hover:text-[#FF5206] block mx-auto cursor-pointer">
+            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-[#A4A4A9] hover:text-gray-700 block mx-auto">
               ← Back
             </button>
           </div>
@@ -172,7 +172,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
 
         {mode === 'register' && (
           <div className="space-y-3 max-h-[70vh] overflow-y-auto pr-1">
-            <h2 className="text-sm font-bold text-[#821F0C] dark:text-[#FEFEFE] mb-2 block">Account Registration</h2>
+            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-2 block">Account Registration</h2>
             <FInput label="Full Name *" value={reg.name} onChange={e => setReg({ ...reg, name: e.target.value })} />
             <FSelect label="Malawian District Match *" value={reg.district} onChange={e => setReg({ ...reg, district: e.target.value })}>
               <option value="">Choose District...</option>
@@ -183,12 +183,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
             <FInput label="Associated School Hub" placeholder="e.g. Mbayani Primary" value={reg.school} onChange={e => setReg({ ...reg, school: e.target.value })} />
             <FInput label="Current Password *" type="password" value={reg.password} onChange={e => setReg({ ...reg, password: e.target.value })} />
             {err && (
-              <div className="bg-[#A1220B]/5 text-[#A1220B] p-2 border border-[#A1220B]/10 rounded text-xs">
+              <div className="bg-red-500/5 text-red-600 p-2 border border-red-500/10 rounded text-xs">
                 {err}
               </div>
             )}
             <Btn full onClick={createAccount}>Register Account</Btn>
-            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-[#A4A4A9] hover:text-[#FF5206] block mx-auto cursor-pointer">
+            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-[#A4A4A9] hover:text-gray-700 block mx-auto">
               ← Back
             </button>
           </div>
@@ -233,8 +233,8 @@ const SubmitReport: React.FC<SubmitReportProps> = ({ user, onSubmit, showToast }
   if (done) return (
     <div className="max-w-md mx-auto text-center py-10 space-y-4">
       <span className="text-5xl block">✅</span>
-      <h2 className="text-xl font-bold text-slate-900 dark:text-slate-50">Report Logged Successfully</h2>
-      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+      <h2 className="text-xl font-bold text-black dark:text-white">Report Logged Successfully</h2>
+      <p className="text-xs sm:text-sm text-black dark:text-white opacity-80 leading-relaxed">
         {isPublic ? "Thank you. Confidential caseworkers will align support immediately." : "Aligned under pending review states."}
       </p>
       <div className="flex gap-2 justify-center">
@@ -248,10 +248,10 @@ const SubmitReport: React.FC<SubmitReportProps> = ({ user, onSubmit, showToast }
     <div className="max-w-2xl mx-auto space-y-5 animate-fade-in-up">
       <div>
         <Kicker text={isPublic ? "Case Submission Portal" : "Primary Field Reporting"} />
-        <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50">
+        <h1 className="text-base font-bold text-black dark:text-white m-0">
           {isPublic ? "Report an Incident" : "Submit Session Record"}
         </h1>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+        <p className="text-xs text-black dark:text-white opacity-80 mt-1 m-0">
           {isPublic ? "Report SGBV, harassment, defilement, or child protection concerns securely." : "Submit certified teacher checklist records."}
         </p>
       </div>
@@ -326,8 +326,8 @@ const TrainingsPage: React.FC = () => {
     <div className="space-y-5 animate-fade-in-up">
       <div>
         <Kicker text="Capacity Engineering" />
-        <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50">ETT Certified Trainings</h1>
-        <p className="text-xs text-slate-500 dark:text-slate-400">Certify and track teachers, community leaders, and safety champions.</p>
+        <h1 className="text-base font-bold text-black dark:text-white m-0">ETT Certified Trainings</h1>
+        <p className="text-xs text-black dark:text-white opacity-80 mt-1 m-0">Certify and track teachers, community leaders, and safety champions.</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3">
@@ -345,7 +345,7 @@ const TrainingsPage: React.FC = () => {
             <Card key={idx} className="flex flex-col justify-between">
               <div className="space-y-1.5 mb-4">
                 <div className="flex justify-between items-start gap-4">
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 m-0">{t.name}</h3>
+                  <h3 className="text-sm font-bold text-black dark:text-white m-0">{t.name}</h3>
                   <Badge text={t.s} className="uppercase shrink-0 text-[10px]" />
                 </div>
                 <p className="text-xs text-slate-400">📅 {t.dates} · pax: {t.pax} teachers</p>
@@ -368,7 +368,7 @@ const TrainingsPage: React.FC = () => {
                         <span
                           key={n}
                           className={`w-6 h-6 text-[10px] rounded-full flex items-center justify-center font-bold ${
-                            done ? 'bg-orange-500 text-white' : isToday ? 'bg-blue-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'
+                            done ? 'bg-[#FF5206] text-white' : isToday ? 'bg-[#FF5206]/80 text-white' : 'bg-gray-100 dark:bg-[#821F0C]/40 text-[#A4A4A9]'
                           }`}
                         >
                           {n}
@@ -391,8 +391,8 @@ const ETTPage: React.FC = () => (
   <div className="space-y-6 max-w-4xl mx-auto animate-fade-in-up">
     <div>
       <Kicker text="Standard Operating Procedures" />
-      <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-50">ETT Malawi Standards</h1>
-      <p className="text-xs text-slate-500 dark:text-slate-400">Governance parameters mapping safety, code of conduct, and reporting timelines.</p>
+      <h1 className="text-base font-bold text-black dark:text-white m-0">ETT Malawi Standards</h1>
+      <p className="text-xs text-black dark:text-white opacity-80 mt-1 m-0">Governance parameters mapping safety, code of conduct, and reporting timelines.</p>
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -403,8 +403,8 @@ const ETTPage: React.FC = () => (
       ].map((item) => (
         <Card key={item.title} className="p-5 space-y-2">
           <div className="h-9 flex items-center">{item.icon}</div>
-          <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 m-0">{item.title}</h4>
-          <p className="text-[11.5px] leading-relaxed text-slate-500 dark:text-slate-400 m-0">{item.text}</p>
+          <h4 className="text-xs sm:text-sm font-bold text-black dark:text-white m-0">{item.title}</h4>
+          <p className="text-[11.5px] leading-relaxed text-black dark:text-white opacity-80 m-0">{item.text}</p>
         </Card>
       ))}
     </div>
@@ -420,13 +420,13 @@ const ETTPage: React.FC = () => (
           ["5", "District authorities alignment", "Form safety partnerships with VSU Police and Child protection officers in the clusters."],
           ["6", "Field file logging", "Always export reports to the ETT Portal for District Coordinator verification."]
         ].map(([n, title, desc]) => (
-          <div key={n} className="flex gap-4 p-3 bg-slate-50/50 dark:bg-slate-950/20 rounded-xl border border-slate-100 dark:border-slate-800">
+          <div key={n} className="flex gap-4 p-3 bg-orange-50/50 dark:bg-[#821F0C]/20 rounded-xl border border-orange-100 dark:border-[#821F0C]/40">
             <span className="w-7 h-7 bg-orange-500 text-white rounded-full font-bold text-xs shrink-0 flex items-center justify-center">
               {n}
             </span>
             <div>
-              <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 mb-1">{title}</h4>
-              <p className="text-[11.5px] leading-relaxed text-slate-500 dark:text-slate-400 m-0">{desc}</p>
+              <h4 className="text-xs sm:text-sm font-bold text-black dark:text-white mb-1">{title}</h4>
+              <p className="text-[11.5px] leading-relaxed text-black dark:text-white opacity-80 m-0">{desc}</p>
             </div>
           </div>
         ))}
@@ -452,11 +452,11 @@ const DistrictsPage: React.FC<DistrictsPageProps> = ({ user, onOpenMap }) => {
     <div className="space-y-5 animate-fade-in-up">
       <div>
         <Kicker text="Demographic Coverage" />
-        <h1 className="text-2xl font-black text-slate-900 dark:text-slate-100">Implementing Districts</h1>
-        <p className="text-xs text-slate-400 dark:text-slate-500">Review 15 active districts and 13 future development regions across Malawi.</p>
+        <h1 className="text-base font-bold text-black dark:text-white">Implementing Districts</h1>
+        <p className="text-xs text-black dark:text-white opacity-80">Review 15 active districts and 13 future development regions across Malawi.</p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50 dark:bg-slate-950 p-4 border border-slate-100 dark:border-slate-800 rounded-2xl">
+      <Card className="grid grid-cols-2 md:grid-cols-4 gap-3 !p-4">
         {[
           ["Active Spheres", "15 Districts"],
           ["Training Coverage", "54% Target reached"],
@@ -464,11 +464,11 @@ const DistrictsPage: React.FC<DistrictsPageProps> = ({ user, onOpenMap }) => {
           ["Teachers trained", `${DISTRICTS.reduce((acc, d) => acc + d.teachersTrained, 0).toLocaleString()} Trained`]
         ].map(([l, v]) => (
           <div key={l} className="space-y-1">
-            <div className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{l}</div>
-            <div className="text-base font-black text-slate-900 dark:text-slate-50">{v}</div>
+            <div className="text-[10px] text-black dark:text-white opacity-80 uppercase tracking-wide">{l}</div>
+            <div className="text-base font-bold text-black dark:text-white">{v}</div>
           </div>
         ))}
-      </div>
+      </Card>
 
       <FilterBar
         options={["all", "Northern", "Central", "Southern"].map(o => ({ v: o, l: o === "all" ? "ALL REGIONS" : `${o.toUpperCase()}` }))}
@@ -484,13 +484,13 @@ const DistrictsPage: React.FC<DistrictsPageProps> = ({ user, onOpenMap }) => {
             <div
               key={d.name}
               onClick={() => onOpenMap({ type: "district", name: d.name, ts: Date.now() })}
-              className={`p-5 rounded-2xl border cursor-pointer transition-all hover:shadow-md hover:-translate-y-0.5 bg-white dark:bg-slate-900 ${
-                isActive ? 'border-orange-100 dark:border-orange-550/10' : 'border-slate-150 dark:border-slate-850 opacity-75'
+              className={`p-4 rounded-lg border cursor-pointer transition-colors bg-white dark:bg-[#1a0a05] text-black dark:text-white ${
+                isActive ? 'border-orange-300 dark:border-orange-900/50' : 'border-neutral-200 dark:border-slate-800 opacity-75'
               }`}
             >
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h3 className="text-sm font-bold text-slate-950 dark:text-slate-50 m-0">{d.name}</h3>
+                  <h3 className="text-sm font-bold text-black dark:text-white m-0">{d.name}</h3>
                   <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold mt-1 inline-block`} style={{ color: rcColors[d.r]?.c || '#4b5563', backgroundColor: rcColors[d.r]?.bg || '#f3f4f6' }}>
                     {d.r}
                   </span>
@@ -501,17 +501,17 @@ const DistrictsPage: React.FC<DistrictsPageProps> = ({ user, onOpenMap }) => {
               {isActive ? (
                 <div className="space-y-3">
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-slate-50 dark:bg-slate-950 p-2 rounded-xl">
-                      <div className="text-[9px] text-slate-400 font-bold mb-0.5">TOTs Certified</div>
-                      <div className="text-sm font-black text-slate-800 dark:text-slate-100">{d.tots}</div>
+                    <div className="bg-white dark:bg-[#821F0C]/20 border border-orange-200 dark:border-[#FF5206]/20 p-2 rounded-lg">
+                      <div className="text-[9px] text-orange-600 font-semibold mb-0.5">TOTs Certified</div>
+                      <div className="text-sm font-bold text-black dark:text-white">{d.tots}</div>
                     </div>
-                    <div className="bg-slate-50 dark:bg-slate-950 p-2 rounded-xl">
-                      <div className="text-[9px] text-slate-400 font-bold mb-0.5">Teachers Trained</div>
-                      <div className="text-sm font-black text-slate-800 dark:text-slate-100">{d.teachersTrained}</div>
+                    <div className="bg-white dark:bg-[#821F0C]/20 border border-orange-200 dark:border-[#FF5206]/20 p-2 rounded-lg">
+                      <div className="text-[9px] text-orange-600 font-semibold mb-0.5">Teachers Trained</div>
+                      <div className="text-sm font-bold text-black dark:text-white">{d.teachersTrained}</div>
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[11px] text-slate-400 dark:text-slate-300 font-bold">
+                    <div className="flex justify-between text-[11px] text-black dark:text-white opacity-80 font-medium">
                       <span>Schools coverage</span>
                       <span>{d.cov}/{d.schools} ({pct}%)</span>
                     </div>
@@ -519,7 +519,7 @@ const DistrictsPage: React.FC<DistrictsPageProps> = ({ user, onOpenMap }) => {
                   </div>
                 </div>
               ) : (
-                <div className="bg-slate-50 dark:bg-slate-950 rounded-xl p-4 text-center text-xs text-slate-400 font-semibold italic">
+                <div className="bg-gray-50 dark:bg-[#821F0C]/20 border border-gray-200 dark:border-[#821F0C]/40 rounded-lg p-4 text-center text-xs text-black dark:text-white opacity-60 font-medium italic">
                   Expansion assessment planned.
                 </div>
               )}
@@ -563,7 +563,7 @@ const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ reports }) => {
     <div className="space-y-5 animate-fade-in-up">
       <div>
         <Kicker text="Statistical Ledger" />
-        <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50">Operational Analytics</h1>
+        <h1 className="text-base font-bold text-black dark:text-white m-0">Operational Analytics</h1>
         <p className="text-xs text-slate-400">Audited session summaries compiled directly from local database records.</p>
       </div>
 
@@ -576,21 +576,21 @@ const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ reports }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <Card className="p-5">
-          <h4 className="text-xs font-extrabold uppercase text-slate-500 dark:text-slate-400 tracking-wider mb-4">File State distribution</h4>
+          <h4 className="text-xs font-extrabold uppercase text-black dark:text-white opacity-80 tracking-wider mb-4">File State distribution</h4>
           {Object.entries(byStatus).map(([k, v]) => (
             <Bar key={k} label={k.toUpperCase()} value={v} max={reports.length} color={k === 'approved' ? '#059669' : k === 'rejected' ? '#dc2626' : OR} />
           ))}
         </Card>
         
         <Card className="p-5">
-          <h4 className="text-xs font-extrabold uppercase text-slate-500 dark:text-slate-400 tracking-wider mb-4">Curriculum usage</h4>
+          <h4 className="text-xs font-extrabold uppercase text-black dark:text-white opacity-80 tracking-wider mb-4">Curriculum usage</h4>
           {Object.entries(byCurr).map(([k, v]) => (
             <Bar key={k} label={k} value={v} max={reports.length} />
           ))}
         </Card>
 
         <Card className="p-5">
-          <h4 className="text-xs font-extrabold uppercase text-slate-500 dark:text-slate-400 tracking-wider mb-4">Submission activity by location</h4>
+          <h4 className="text-xs font-extrabold uppercase text-black dark:text-white opacity-80 tracking-wider mb-4">Submission activity by location</h4>
           {Object.entries(byDist).map(([k, v]) => (
             <Bar key={k} label={k} value={v} max={Math.max(...Object.values(byDist), 1)} />
           ))}
@@ -649,8 +649,8 @@ const UsersPage: React.FC<UsersPageProps> = ({ user: cu, users, setUsers, showTo
       <div className="flex justify-between items-end">
         <div>
           <Kicker text="Staff Alignment" />
-          <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50">Personnel Directory</h1>
-          <p className="text-xs text-slate-400 dark:text-slate-500">Deploy district coordinators, certified TOTs, and alignment advocates.</p>
+          <h1 className="text-base font-bold text-black dark:text-white m-0">Personnel Directory</h1>
+          <p className="text-xs text-black dark:text-white opacity-80 mt-1 m-0">Deploy district coordinators, certified TOTs, and alignment advocates.</p>
         </div>
         <Btn onClick={() => setShowAdd(true)}><Plus size={14} className="inline mr-1" /> Add User</Btn>
       </div>
@@ -678,11 +678,11 @@ const UsersPage: React.FC<UsersPageProps> = ({ user: cu, users, setUsers, showTo
                   <tr key={u.id} className="border-b border-slate-100 dark:border-slate-800/40">
                     <td className="p-3">
                       <div className="flex items-center gap-3">
-                        <span className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 flex items-center justify-center font-bold text-xs text-orange-600">
+                        <span className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold text-xs text-orange-600">
                           {u.avatar}
                         </span>
                         <div>
-                          <div className="font-bold text-slate-950 dark:text-slate-50">{u.name}</div>
+                          <div className="font-bold text-black dark:text-white">{u.name}</div>
                           <div className="text-[10.5px] text-slate-400 mt-0.5">{u.email}</div>
                         </div>
                       </div>
@@ -708,7 +708,7 @@ const UsersPage: React.FC<UsersPageProps> = ({ user: cu, users, setUsers, showTo
                           </Btn>
                         )}
                         {u.status === "active" && u.id !== cu.id && (
-                          <Btn size="sm" variant="secondary" className="text-red-600 bg-red-50 dark:bg-red-950/20" onClick={() => {
+                          <Btn size="sm" variant="secondary" className="text-red-600 bg-red-50 dark:bg-red-900/30" onClick={() => {
                             setUsers(prev => prev.map(x => x.id === u.id ? { ...x, status: "pending" as const } : x));
                             showToast(`Suspended profile credentials`);
                           }}>
@@ -738,7 +738,7 @@ const UsersPage: React.FC<UsersPageProps> = ({ user: cu, users, setUsers, showTo
             <option value="data_entry">Data Entry Officer</option>
             <option value="viewer">Basic View Inspector</option>
           </FSelect>
-          <FSelect label="Assigned Region Hub" value={nf.district} onChange={sn("district")}>
+          <FSelect label="Assigned Region" value={nf.district} onChange={sn("district")}>
             <option value="">Choose District (None/National)</option>
             {DISTRICT_LIST.map(d => <option key={d}>{d}</option>)}
           </FSelect>
@@ -752,11 +752,29 @@ const UsersPage: React.FC<UsersPageProps> = ({ user: cu, users, setUsers, showTo
   );
 };
 
+const PAGE_LABELS: Record<string, string> = {
+  dashboard: "Overview",
+  submit: "Submit Report",
+  reports: "Reports",
+  my_reports: "My Reports",
+  maps: "Clusters Map",
+  districts: "Districts",
+  trainings: "Trainings",
+  curriculum: "Curriculum",
+  ett: "ETT Standards",
+  analytics: "Analytics",
+  users: "Staff Directory",
+  impact: "Impact Stories",
+  calendar: "Calendar",
+  tasks: "Tasks",
+  settings: "Settings",
+};
+
 // ─── APPS MAIN CONTAINER / CORE ENGINE ────────
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const saved = safeStorage.getItem("ett_theme");
-    return saved !== "light";
+    return saved === "dark";
   });
 
   const [user, setUser] = useState<User | null>(() => {
@@ -913,7 +931,7 @@ export default function App() {
       case "analytics":
         return <AnalyticsPage reports={reports} />;
       case "users":
-        return isStaff ? <UsersPage user={cu => cu} users={users} setUsers={setUsers} showToast={showToast} /> : null;
+        return user?.role === 'admin' ? <UsersPage user={user} users={users} setUsers={setUsers} showToast={showToast} /> : null;
       case "impact":
         return <ImpactPage reports={reports} showToast={showToast} user={user} />;
       case "calendar":
@@ -931,311 +949,257 @@ export default function App() {
   const activeNavGroups = isStaff
     ? [
         {
-          title: "Dashboard Workspace",
+          title: "Workspace",
           items: [
-            { id: "dashboard", label: "National Hub", icon: LayoutDashboard },
-            { id: "submit", label: "Submit session file", icon: FilePlus },
-            { id: "reports", label: "Oversight folder", icon: FileText }
+            { id: "dashboard", label: "Overview", icon: LayoutDashboard },
+            { id: "submit", label: "Submit report", icon: FilePlus },
+            { id: "reports", label: "Reports", icon: FileText }
           ]
         },
         {
-          title: "Planning & Actions",
+          title: "Planning",
           items: [
-            { id: "calendar", label: "Operations Calendar", icon: Calendar },
-            { id: "tasks", label: "Operations Tasks", icon: ListTodo }
+            { id: "calendar", label: "Calendar", icon: Calendar },
+            { id: "tasks", label: "Tasks", icon: ListTodo }
           ]
         },
         {
-          title: "Educational & Operations",
+          title: "Program",
           items: [
-            { id: "maps", label: "Clusters Map", icon: Map },
-            { id: "districts", label: "Malawi Districts", icon: MapPin },
-            { id: "trainings", label: "Certs & TOTs", icon: GraduationCap },
-            { id: "curriculum", label: "Empower curriculums", icon: BookOpen },
-            { id: "ett", label: "ETT Standards", icon: Layers }
+            { id: "maps", label: "Clusters map", icon: Map },
+            { id: "districts", label: "Districts", icon: MapPin },
+            { id: "trainings", label: "Trainings", icon: GraduationCap },
+            { id: "curriculum", label: "Curriculum", icon: BookOpen },
+            { id: "ett", label: "ETT standards", icon: Layers }
           ]
         },
         {
-          title: "Portal Controls",
+          title: "Admin",
           items: [
-            { id: "analytics", label: "Analytics Trends", icon: BarChart2 },
-            { id: "impact", label: "Transformations", icon: Heart },
-            ...(user?.role === 'admin' ? [{ id: "users", label: "Staff Directory", icon: Users }] : []),
-            { id: "settings", label: "Settings pref", icon: Settings }
+            { id: "analytics", label: "Analytics", icon: BarChart2 },
+            { id: "impact", label: "Impact stories", icon: Heart },
+            ...(user?.role === 'admin' ? [{ id: "users", label: "Staff", icon: Users }] : []),
+            { id: "settings", label: "Settings", icon: Settings }
           ]
         }
       ]
     : [
         {
-          title: "ScaleUp Public Deck",
+          title: "Overview",
           items: [
-            { id: "dashboard", label: "National Hub", icon: LayoutDashboard },
-            { id: "maps", label: "Clusters Map", icon: Map },
-            { id: "districts", label: "Malawi Districts", icon: MapPin },
-            { id: "trainings", label: "Certs & TOTs", icon: GraduationCap },
-            { id: "curriculum", label: "Empower curriculums", icon: BookOpen },
-            { id: "ett", label: "ETT Standards", icon: Layers }
+            { id: "dashboard", label: "Overview", icon: LayoutDashboard },
+            { id: "maps", label: "Clusters map", icon: Map },
+            { id: "districts", label: "Districts", icon: MapPin },
+            { id: "trainings", label: "Trainings", icon: GraduationCap },
+            { id: "curriculum", label: "Curriculum", icon: BookOpen },
+            { id: "ett", label: "ETT standards", icon: Layers }
           ]
         },
         {
-          title: "Portal Controls",
+          title: "Data",
           items: [
-            { id: "analytics", label: "Analytics Trends", icon: BarChart2 },
-            { id: "impact", label: "Transformations", icon: Heart },
-            { id: "submit", label: user ? "Submit session file" : "Report SGBV Incident", icon: FilePlus },
-            { id: "settings", label: "Settings pref", icon: Settings }
+            { id: "analytics", label: "Analytics", icon: BarChart2 },
+            { id: "impact", label: "Impact stories", icon: Heart },
+            { id: "submit", label: user ? "Submit report" : "Report a case", icon: FilePlus },
+            { id: "settings", label: "Settings", icon: Settings }
           ]
         }
       ];
 
+  const renderNav = (onNavigate?: () => void) => (
+    activeNavGroups.map(group => (
+      <div key={group.title} className="space-y-0.5 mb-3">
+        <div className="text-[10px] text-black dark:text-white font-semibold uppercase tracking-wide px-2 mb-1 opacity-60">{group.title}</div>
+        {group.items.map(item => {
+          const Icon = item.icon;
+          const isActive = page === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => { setPage(item.id); onNavigate?.(); }}
+              className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-md text-xs font-medium transition ${
+                isActive
+                  ? 'bg-orange-50 text-orange-600 dark:bg-orange-600/15 dark:text-orange-400'
+                  : 'text-black hover:bg-orange-50 hover:text-orange-600 dark:text-white dark:hover:bg-[#821F0C]/40 dark:hover:text-orange-400'
+              }`}
+            >
+              <Icon size={14} />
+              <span>{item.label}</span>
+            </button>
+          );
+        })}
+      </div>
+    ))
+  );
+
   return (
     <>
-      <div className={`min-h-screen text-[#821F0C] dark:text-[#FEFEFE] flex flex-col transition-colors ${darkMode ? 'bg-[#1a0a05] text-[#FEFEFE]' : 'bg-[#F6F6F6] text-[#821F0C]'}`}>
-        
-        {/* ── TOP NAVIGATION BAR ── */}
-        {!isLoginPage && (
-          <header className="sticky top-0 bg-[#460C04] border-b border-[#821F0C] text-[#FEFEFE] h-16 z-40 flex items-center justify-center px-4 shadow-md">
-            <div className="w-full max-w-7xl flex items-center justify-between">
-              
-              <div className="flex items-center gap-3">
-                {page === "dashboard" ? (
-                  <button
-                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="p-1.5 rounded-lg border border-[#821F0C] bg-[#460C04]/40 hover:bg-[#821F0C]/40 cursor-pointer transition text-[#FEFEFE]"
-                    aria-label="Toggle Side Deck"
+      <div className="h-screen flex overflow-hidden bg-[#F6F6F6] dark:bg-[#460C04] text-gray-900 dark:text-white transition-colors">
+        {isLoginPage ? (
+          <div className="flex-1 overflow-y-auto">{renderPageContent()}</div>
+        ) : (
+          <>
+            <AnimatePresence>
+              {sidebarOpen && (
+                <>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.5 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setSidebarOpen(false)}
+                    className="fixed inset-0 bg-black z-30 md:hidden"
+                  />
+                  <motion.aside
+                    initial={{ x: -224 }}
+                    animate={{ x: 0 }}
+                    exit={{ x: -224 }}
+                    transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+                    className="fixed top-0 bottom-0 left-0 w-56 bg-white dark:bg-[#460C04] border-r border-neutral-200 dark:border-[#821F0C] z-40 p-3 flex flex-col md:hidden shadow-lg"
                   >
-                    <Sliders size={18} />
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setPage("dashboard")}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#821F0C] bg-[#460C04]/40 hover:bg-[#821F0C]/40 cursor-pointer text-xs font-bold transition text-[#F6F6F6]"
-                  >
-                    <ArrowLeft size={13} /> Back
-                  </button>
-                )}
-
-                <div className="flex items-center gap-2 select-none">
-                  <AfricaLogo size={28} />
-                  <span className="font-extrabold text-sm sm:text-base leading-none tracking-tight">ETT Malawi</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                {/* Notification bell and status */}
-                {user && (
-                  <div className="relative">
-                    <button
-                      onClick={() => setNotifOpen(!notifOpen)}
-                      className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#FEFEFE]/5 border border-[#821F0C] hover:bg-[#FEFEFE]/10 cursor-pointer relative transition"
-                      title={`${pendingCount} pending reviews`}
-                    >
-                      <Bell size={15} className="text-[#FEFEFE]" />
-                      {pendingCount > 0 && (
-                        <span className="absolute -top-1 right-[-2px] bg-[#A1220B] border border-[#460C04] text-[#FEFEFE] font-extrabold text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center p-0.5">
-                          {pendingCount}
-                        </span>
-                      )}
-                    </button>
-
-                    {notifOpen && (
-                      <div className="absolute right-0 top-11 bg-[#FEFEFE] dark:bg-[#460C04] border border-[#A4A4A9]/30 dark:border-[#821F0C] rounded-xl shadow-2xl p-4 w-72 text-[#821F0C] dark:text-[#FEFEFE] z-50 animate-fade-in-up">
-                        <div className="flex items-center justify-between pb-2 border-b border-[#F6F6F6] dark:border-[#821F0C] mb-2">
-                          <span className="font-extrabold text-xs">Review Folder Alerts</span>
-                          {pendingCount > 0 && <span className="bg-[#FF5206]/15 text-[#FF5206] text-[9px] px-1.5 rounded">Action required</span>}
-                        </div>
-                        <div className="max-h-[220px] overflow-y-auto space-y-2">
-                          {reports.filter(r => r.status === "pending" && (user.role === "district_coordinator" ? r.district === user.district : true)).length === 0 ? (
-                            <p className="text-xs text-[#A4A4A9] py-4 text-center m-0">No active pending reviewed files found.</p>
-                          ) : (
-                            reports.filter(r => r.status === "pending" && (user.role === "district_coordinator" ? r.district === user.district : true)).map(r => (
-                              <div key={r.id} onClick={() => { setPage("reports"); setNotifOpen(false); }} className="p-2 bg-[#F6F6F6] dark:bg-[#1a0a05] rounded border border-[#F6F6F6] dark:border-[#821F0C] hover:border-[#FF5206]/25 cursor-pointer transition text-left text-[11.5px] font-semibold space-y-0.5">
-                                <div className="text-[#460C04] dark:text-[#FEFEFE] truncate">{r.school}</div>
-                                <div className="text-[10px] text-[#A4A4A9] dark:text-[#A4A4A9] font-medium">{r.district} · {r.submitted_at}</div>
-                              </div>
-                            ))
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Direct Preference toggle cog */}
-                <button
-                  onClick={() => setPage("settings")}
-                  className={`w-9 h-9 flex items-center justify-center rounded-lg bg-[#FEFEFE]/5 border hover:bg-[#FEFEFE]/10 cursor-pointer transition ${
-                    page === 'settings' ? 'border-[#FF5206] bg-[#FF5206]/10 text-[#FF5206]' : 'border-[#821F0C] text-[#FEFEFE]'
-                  }`}
-                  title="Configure System theme and preferences"
-                >
-                  <Settings size={15} />
-                </button>
-
-                {/* Quick login pill */}
-                {user && (
-                  <div className="flex items-center gap-2">
-                    <span className="hidden sm:inline-block px-3 py-1 bg-[#FEFEFE]/5 border border-[#821F0C] font-bold text-xs rounded-full">
-                      <Users size={12} className="inline mr-1 text-[#FEFEFE]" /> {user.name}
-                    </span>
-                    <button
-                      onClick={() => { setUser(null); setPage("dashboard"); showToast("Signed Out of ETT Malawi."); }}
-                      className="px-3 py-1.5 rounded-lg bg-[#A1220B] hover:bg-[#821F0C] text-[#FEFEFE] font-bold text-xs cursor-pointer border-none transition"
-                      title="Deauthorize session credentials"
-                    >
-                      Sign Out
-                    </button>
-                  </div>
-                )}
-                {!user && (
-                  <button
-                    onClick={() => setPage("login")}
-                    className="px-3 py-1.5 bg-[#FF5206] hover:bg-[#A1220B] text-[#FEFEFE] font-black text-xs cursor-pointer rounded-lg border-none transition"
-                  >
-                    Staff Gate
-                  </button>
-                )}
-              </div>
-
-            </div>
-          </header>
-        )}
-
-        {/* ── CENTRAL LAYOUT GRID ── */}
-        <div className="flex-1 flex flex-col md:flex-row relative">
-          
-          {/* Static / Mobile slide deck */}
-          <AnimatePresence>
-            {sidebarOpen && !isLoginPage && (
-              <>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.5 }}
-                  exit={{ opacity: 0 }}
-                  onClick={() => setSidebarOpen(false)}
-                  className="fixed inset-0 bg-[#460C04]/60 z-30 md:hidden"
-                />
-                <motion.aside
-                  initial={{ x: -280 }}
-                  animate={{ x: 0 }}
-                  exit={{ x: -280 }}
-                  transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-                  className="sidebar-dark-custom fixed top-0 bottom-0 left-0 w-64 bg-[#460C04] z-40 p-5 flex flex-col justify-between overflow-y-auto shadow-2xl border-r border-[#821F0C]"
-                >
-                  <div className="space-y-6">
-                    <div className="flex justify-between items-center pb-4 border-b sidebar-border">
+                    <div className="flex justify-between items-center pb-3 mb-2 border-b border-neutral-200 dark:border-[#821F0C]">
                       <div className="flex items-center gap-2">
-                        <AfricaLogo size={28} />
-                        <span className="font-extrabold text-[#FEFEFE] text-base">ETT Portal Menu</span>
+                        <AfricaLogo size={22} />
+                        <span className="font-bold text-sm text-black dark:text-white">ETT Malawi</span>
                       </div>
-                      <button onClick={() => setSidebarOpen(false)} className="text-[#A4A4A9] hover:text-[#FEFEFE] cursor-pointer">
-                        <X size={18} />
+                      <button type="button" onClick={() => setSidebarOpen(false)} className="text-black dark:text-white opacity-60 hover:opacity-100">
+                        <X size={16} />
                       </button>
                     </div>
-
-                    <div className="space-y-4 text-xs font-semibold">
-                      {activeNavGroups.map(group => (
-                        <div key={group.title} className="space-y-1.5">
-                          <div className="text-[10px] text-group-title tracking-wider uppercase font-bold px-2">{group.title}</div>
-                          {group.items.map(item => {
-                            const Icon = item.icon;
-                            const isActive = page === item.id;
-                            return (
-                              <div
-                                key={item.id}
-                                onClick={() => { setPage(item.id); setSidebarOpen(false); }}
-                                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg cursor-pointer transition ${
-                                  isActive ? 'nav-item-active' : 'nav-item-inactive'
-                                }`}
-                              >
-                                <Icon size={14} />
-                                <span>{item.label}</span>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      ))}
+                    <div className="flex-1 overflow-y-auto">{renderNav(() => setSidebarOpen(false))}</div>
+                    <div className="pt-2 border-t border-neutral-200 dark:border-[#821F0C] text-[10px] text-black dark:text-white opacity-60">
+                      Helpline <b className="text-orange-600 dark:text-orange-400">116</b> · VSU <b className="text-orange-600 dark:text-orange-400">997</b>
                     </div>
-                  </div>
+                  </motion.aside>
+                </>
+              )}
+            </AnimatePresence>
 
-                  <div className="pt-4 border-t sidebar-border space-y-2 text-xs">
-                    <div className="text-group-title block text-[10px] uppercase font-bold">Hotlines alignment</div>
-                    <div className="font-bold text-[#F6F6F6]">Child Helpline: 116</div>
-                    <div className="font-bold text-[#F6F6F6]">Police: 997</div>
-                  </div>
-                </motion.aside>
-              </>
-            )}
-          </AnimatePresence>
-
-          {/* Desktop permanent side navigation deck */}
-          {!isLoginPage && (
-            <aside className="sidebar-dark-custom hidden md:flex w-64 border-r border-[#821F0C] shrink-0 p-5 flex-col justify-between overflow-y-auto bg-[#460C04]">
-              <div className="space-y-5">
-                <div className="space-y-4 text-xs font-semibold">
-                  {activeNavGroups.map(group => (
-                    <div key={group.title} className="space-y-1">
-                      <div className="text-[9.5px] text-group-title font-extrabold uppercase tracking-widest px-2 mb-2 select-none">
-                        {group.title}
-                      </div>
-                      {group.items.map(item => {
-                        const Icon = item.icon;
-                        const isActive = page === item.id;
-                        return (
-                          <div
-                            key={item.id}
-                            onClick={() => setPage(item.id)}
-                            className={`flex items-center gap-2.5 px-3 py-2 rounded-xl cursor-pointer transition ${
-                              isActive ? 'nav-item-active' : 'nav-item-inactive'
-                            }`}
-                          >
-                            <Icon size={13.5} />
-                            <span>{item.label}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
+            <aside className="hidden md:flex w-56 shrink-0 flex-col bg-white dark:bg-[#460C04] border-r border-neutral-200 dark:border-[#821F0C]">
+              <div className="h-12 flex items-center gap-2 px-3 border-b border-neutral-200 dark:border-[#821F0C] shrink-0">
+                <AfricaLogo size={22} />
+                <span className="font-bold text-sm text-black dark:text-white truncate">ETT Malawi</span>
               </div>
-
-              <div className="pt-4 border-t sidebar-border space-y-1.5 text-xs text-group-title leading-normal">
-                <div className="text-[10px] font-extrabold uppercase tracking-wider">Helplines alignment</div>
-                <div>Child Helpline: <span className="font-extrabold text-[#F6F6F6]">116</span></div>
-                <div>VSU Police Desk: <span className="font-extrabold text-[#F6F6F6]">997</span></div>
+              <div className="flex-1 overflow-y-auto p-2">{renderNav()}</div>
+              <div className="p-3 border-t border-neutral-200 dark:border-[#821F0C] text-[10px] text-black dark:text-white opacity-60 shrink-0">
+                Helpline <b className="text-orange-600 dark:text-orange-400">116</b> · VSU <b className="text-orange-600 dark:text-orange-400">997</b>
               </div>
             </aside>
-          )}
 
-          {/* Main workspace container where children display */}
-          <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
-            <div className="w-full max-w-7xl mx-auto min-h-[75vh]">
-              {renderPageContent()}
+            <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#1a0a05]">
+              <header className="h-12 shrink-0 flex items-center justify-between gap-3 px-3 border-b border-neutral-200 dark:border-[#821F0C] bg-white dark:bg-[#460C04]">
+                <div className="flex items-center gap-2 min-w-0">
+                  <button
+                    type="button"
+                    onClick={() => setSidebarOpen(true)}
+                    className="md:hidden p-1.5 rounded-md border border-neutral-200 dark:border-[#821F0C] text-black dark:text-white"
+                    aria-label="Open menu"
+                  >
+                    <Sliders size={16} />
+                  </button>
+                  <h2 className="text-sm font-semibold text-black dark:text-white truncate m-0">
+                    {PAGE_LABELS[page] || "Overview"}
+                  </h2>
+                </div>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {user && (
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setNotifOpen(!notifOpen)}
+                        className="w-8 h-8 flex items-center justify-center rounded-md border border-neutral-200 dark:border-[#821F0C] hover:border-orange-400 text-black dark:text-white relative"
+                        title={`${pendingCount} pending reviews`}
+                      >
+                        <Bell size={14} />
+                        {pendingCount > 0 && (
+                          <span className="absolute -top-1 -right-1 bg-red-600 text-white font-bold text-[9px] min-w-[16px] h-4 rounded-full flex items-center justify-center px-0.5">
+                            {pendingCount}
+                          </span>
+                        )}
+                      </button>
+
+                      {notifOpen && (
+                        <div className="absolute right-0 top-10 bg-white dark:bg-[#460C04] border border-neutral-200 dark:border-[#821F0C] rounded-lg shadow-lg p-3 w-64 z-50 text-black dark:text-white">
+                          <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-[#821F0C] mb-2">
+                            <span className="font-semibold text-xs">Pending reviews</span>
+                            {pendingCount > 0 && <span className="bg-amber-100 text-amber-800 text-[9px] px-1.5 rounded">Action required</span>}
+                          </div>
+                          <div className="max-h-[200px] overflow-y-auto space-y-1.5">
+                            {reports.filter(r => r.status === "pending" && (user.role === "district_coordinator" ? r.district === user.district : true)).length === 0 ? (
+                              <p className="text-xs py-3 text-center m-0 opacity-60">No pending files.</p>
+                            ) : (
+                              reports.filter(r => r.status === "pending" && (user.role === "district_coordinator" ? r.district === user.district : true)).map(r => (
+                                <button
+                                  key={r.id}
+                                  type="button"
+                                  onClick={() => { setPage("reports"); setNotifOpen(false); }}
+                                  className="w-full text-left p-2 bg-white dark:bg-[#821F0C]/30 rounded border border-neutral-200 dark:border-[#821F0C] hover:border-orange-400 text-[11px] text-black dark:text-white"
+                                >
+                                  <div className="font-semibold truncate">{r.school}</div>
+                                  <div className="text-[10px] opacity-60">{r.district} · {r.submitted_at}</div>
+                                </button>
+                              ))
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="w-8 h-8 flex items-center justify-center rounded-md border border-neutral-200 dark:border-[#821F0C] hover:border-orange-400 text-black dark:text-white"
+                    title="Toggle theme"
+                  >
+                    {darkMode ? <Sun size={14} /> : <Moon size={14} />}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPage("settings")}
+                    className={`w-8 h-8 flex items-center justify-center rounded-md border hover:border-orange-400 text-black dark:text-white ${
+                      page === 'settings' ? 'border-orange-500 text-orange-600' : 'border-neutral-200 dark:border-[#821F0C]'
+                    }`}
+                    title="Settings"
+                  >
+                    <Settings size={14} />
+                  </button>
+
+                  {user ? (
+                    <>
+                      <span className="hidden sm:inline text-xs font-medium text-black dark:text-white max-w-[120px] truncate">
+                        {user.name}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => { setUser(null); setPage("dashboard"); showToast("Signed out."); }}
+                        className="px-2.5 py-1 rounded-md bg-red-600 hover:bg-red-700 text-white font-semibold text-xs"
+                      >
+                        Sign out
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setPage("login")}
+                      className="px-2.5 py-1 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-xs rounded-md"
+                    >
+                      Sign in
+                    </button>
+                  )}
+                </div>
+              </header>
+
+              <main className="flex-1 overflow-y-auto p-4">
+                <div className="max-w-7xl mx-auto">
+                  {renderPageContent()}
+                </div>
+              </main>
             </div>
-
-            {/* Standard aligned footer */}
-            {!isLoginPage && (
-               <footer className="w-full max-w-7xl mx-auto border-t border-[#A4A4A9]/30 dark:border-[#821F0C]/80 mt-12 pt-6 pb-6 text-center text-xs text-[#A4A4A9] space-y-4">
-                <div className="flex items-center justify-center gap-2">
-                  <AfricaLogo size={20} />
-                  <span className="font-extrabold text-[#821F0C] dark:text-[#FEFEFE]">Ujamaa Pamodzi Africa</span>
-                </div>
-                <p className="m-0 leading-relaxed max-w-xl mx-auto text-[#A4A4A9]">
-                  Country Wide ScaleUp Program adapted to prevent GBV, support disclosures, and enforce child protections.
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-[#A4A4A9]">
-                  <span>Child Helpline: <b>116</b></span>
-                  <span>VSU Police Desk: <b>997</b></span>
-                  <span>Other Helpline: <b>0984 110 288</b></span>
-                </div>
-                <div className="text-[10px] text-[#A4A4A9] mt-2 font-medium">
-                  © 2026 Ujamaa Africa Protection. All rights reserved. Registered Malawi NGOs Association network.
-                </div>
-              </footer>
-            )}
-          </main>
-
-        </div>
+          </>
+        )}
       </div>
 
       {toast && <Toast msg={toast} onClose={() => setToast(null)} />}
@@ -1274,7 +1238,7 @@ export default function App() {
             <p className="text-slate-500 m-0 leading-relaxed text-xs">
               This action transmits the approved school record of <b>{forwardModal.school}</b> ({forwardModal.district}) to the <b>National Administrator</b> database log folder.
             </p>
-            <div className="bg-orange-50 dark:bg-orange-950/20 text-orange-700 dark:text-orange-450 p-2.5 rounded-lg text-xs border border-orange-100 dark:border-orange-900/30">
+            <div className="bg-orange-50 dark:bg-[#FF5206]/10 text-orange-700 dark:text-orange-300 p-2.5 rounded-lg text-xs border border-orange-100 dark:border-[#FF5206]/20">
               📨 Route state: Central DC Verified → National Administrator aligned
             </div>
             <div className="flex gap-2 justify-end pt-2">
