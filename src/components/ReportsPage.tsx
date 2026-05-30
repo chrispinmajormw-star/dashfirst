@@ -53,46 +53,46 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
     <div className="space-y-5 animate-fade-in-up">
       <div>
         <Kicker text="Reporting Log" />
-        <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50">
+        <h1 className="text-2xl font-black text-[#460C04] dark:text-[#FEFEFE]">
           {user.role === "data_entry" ? "My Reports Dashboard" : "All Session Reports"}
         </h1>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-[#A4A4A9]">
           Monitor primary cluster attendances, SGBV compliance files, and school records.
         </p>
       </div>
 
       {/* Workflow banner */}
-      <div className="bg-orange-50 dark:bg-orange-950/10 border border-orange-100 dark:border-orange-900/30 rounded-2xl p-4 flex flex-wrap items-center gap-3 text-xs font-semibold text-orange-850 dark:text-orange-400">
+      <div className="bg-[#FF5206]/5 dark:bg-[#821F0C]/10 border border-[#FF5206]/20 dark:border-[#821F0C]/30 rounded-2xl p-4 flex flex-wrap items-center gap-3 text-xs font-semibold text-[#FF5206] dark:text-[#FEFEFE]">
         <span>📋 Routing Channel:</span>
         {["tot", "viewer", "data_entry"].includes(user.role) && (
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="bg-orange-600 text-white px-2 py-0.5 rounded-full scale-95 font-bold">You</span>
+            <span className="bg-[#FF5206] text-[#FEFEFE] px-2 py-0.5 rounded-full scale-95 font-bold">You</span>
             <CornerDownRight size={14} className="opacity-60" />
-            <span className="bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-2.5 py-0.5 rounded-full scale-95 font-bold">District Coordinator</span>
+            <span className="bg-[#821F0C]/20 text-[#821F0C] dark:text-[#FEFEFE] px-2.5 py-0.5 rounded-full scale-95 font-bold">District Coordinator</span>
             <CornerDownRight size={14} className="opacity-60" />
-            <span className="bg-emerald-150 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 px-2.5 py-0.5 rounded-full scale-95 font-bold">Admin</span>
+            <span className="bg-[#A1220B]/20 text-[#A1220B] dark:text-[#FEFEFE] px-2.5 py-0.5 rounded-full scale-95 font-bold">Admin</span>
           </div>
         )}
         {user.role === "district_coordinator" && (
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-2.5 py-0.5 rounded-full scale-95 font-bold">District Coordinator</span>
+            <span className="bg-[#821F0C]/20 text-[#821F0C] dark:text-[#FEFEFE] px-2.5 py-0.5 rounded-full scale-95 font-bold">District Coordinator</span>
             <CornerDownRight size={14} className="opacity-60" />
-            <span className="bg-emerald-150 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 px-2.5 py-0.5 rounded-full scale-95 font-bold">National Admin</span>
+            <span className="bg-[#A1220B]/20 text-[#A1220B] dark:text-[#FEFEFE] px-2.5 py-0.5 rounded-full scale-95 font-bold">National Admin</span>
           </div>
         )}
         {user.role === "admin" && (
-          <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 rounded-full scale-95 font-bold">
+          <span className="bg-[#A1220B]/20 text-[#A1220B] dark:text-[#FEFEFE] px-2.5 py-0.5 rounded-full scale-95 font-bold animate-pulse">
             National Admin — Full Overseer Recipient
           </span>
         )}
         {user.role === "data_entry" && (
-          <span className="ml-auto text-slate-500 dark:text-slate-400 font-medium text-[11px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
+          <span className="ml-auto text-[#A4A4A9] font-medium text-[11px] bg-[#F6F6F6] dark:bg-[#1a0a05] px-2 py-0.5 rounded">
             ✏️ Data Officer: Permissions enabled to modify files
           </span>
         )}
       </div>
 
-      <Card>
+      <Card className="bg-[#FEFEFE] border border-[#A4A4A9]/25">
         <FilterBar
           options={["all", "pending", "approved", "rejected", "forwarded"].map(x => ({
             v: x,
@@ -105,33 +105,33 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
           searchPlaceholder="Search school or district..."
         />
 
-        <div className="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800/60">
-          <table className="w-full border-collapse text-left text-xs text-slate-700 dark:text-slate-300">
+        <div className="overflow-x-auto rounded-xl border border-[#A4A4A9]/25 dark:border-[#821F0C]/60">
+          <table className="w-full border-collapse text-left text-xs text-[#821F0C] dark:text-[#A4A4A9]">
             <TH cols={["School", "District", "Curriculum", "Session Conducted", "Students", "Status", "Sent To Alignment", "Actions"]} />
             <tbody>
               {visible.map(r => (
                 <tr
                   key={r.id}
-                  className="border-b border-slate-100 dark:border-slate-800/40 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors"
+                  className="border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40 hover:bg-[#FF5206]/5 dark:hover:bg-[#FF5206]/10 transition-colors"
                 >
-                  <td className="p-3 font-bold text-slate-900 dark:text-slate-100 whitespace-nowrap">{r.school}</td>
-                  <td className="p-3 text-slate-500 dark:text-slate-400">{r.district}</td>
+                  <td className="p-3 font-bold text-[#460C04] dark:text-[#FEFEFE] whitespace-nowrap">{r.school}</td>
+                  <td className="p-3 text-[#A4A4A9] font-medium">{r.district}</td>
                   <td className="p-3">
-                    <Badge text={r.curriculum} bg="rgba(232,93,4,0.12)" color={OR} />
+                    <Badge text={r.curriculum} bg="rgba(255, 82, 6, 0.12)" color="#FF5206" />
                   </td>
-                  <td className="p-3 text-slate-500 dark:text-slate-400 max-w-[200px] truncate" title={r.session}>
+                  <td className="p-3 text-[#821F0C] dark:text-[#A4A4A9] max-w-[200px] truncate" title={r.session}>
                     {r.session}
                   </td>
-                  <td className="p-3 font-semibold text-slate-800 dark:text-slate-200">
-                    {r.boys + r.girls} <span className="text-[10px] text-slate-400 font-normal">({r.boys}B / {r.girls}G)</span>
+                  <td className="p-3 font-semibold text-[#821F0C] dark:text-[#FEFEFE]">
+                    {r.boys + r.girls} <span className="text-[10px] text-[#A4A4A9] font-normal">({r.boys}B / {r.girls}G)</span>
                   </td>
                   <td className="p-3">
                     <Pill s={r.status} />
                   </td>
-                  <td className="p-3 text-[10.5px] text-slate-500 dark:text-slate-400 font-semibold italic">
+                  <td className="p-3 text-[10.5px] text-[#A4A4A9] font-semibold italic">
                     {r.sentToLabel || "In Progress"}
                   </td>
-                  <td className="p-3">
+                  <td className="p-3 text-xs">
                     <div className="flex flex-wrap gap-1">
                       <Btn size="sm" variant="ghost" onClick={() => setSel(r)}>
                         View
@@ -141,7 +141,7 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
                         <Btn
                           size="sm"
                           variant="ghost"
-                          className="border-blue-100 text-blue-600 dark:text-blue-400 bg-blue-50/20"
+                          className="border-[#FF5206]/20 text-[#FF5206] bg-[#FF5206]/5 hover:bg-[#FF5206]/15 font-bold"
                           onClick={() => onEditReport(r)}
                         >
                           ✏️ Edit
@@ -152,14 +152,14 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
                         <>
                           <button
                             onClick={() => { onUpdateStatus(r.id, "approved"); showToast("✅ Report approved"); }}
-                            className="bg-emerald-500 text-white rounded-lg p-1.5 hover:bg-emerald-600 cursor-pointer w-7 h-7 flex items-center justify-center transition"
+                            className="bg-[#FF5206] text-white rounded-lg p-1.5 hover:bg-[#A1220B] cursor-pointer w-7 h-7 flex items-center justify-center transition border-none"
                             title="Approve Report"
                           >
                             <Check size={14} />
                           </button>
                           <button
                             onClick={() => { onUpdateStatus(r.id, "rejected"); showToast("Report rejected"); }}
-                            className="bg-red-500 text-white rounded-lg p-1.5 hover:bg-red-600 cursor-pointer w-7 h-7 flex items-center justify-center transition"
+                            className="bg-[#A1220B] text-white rounded-lg p-1.5 hover:bg-[#821F0C] cursor-pointer w-7 h-7 flex items-center justify-center transition border-none"
                             title="Reject Report"
                           >
                             <X size={14} />
@@ -171,7 +171,7 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
                         <Btn
                           size="sm"
                           variant="ghost"
-                          className="border-orange-200 text-orange-600 dark:text-orange-400 bg-orange-50/30"
+                          className="border-[#FF5206]/25 text-[#FF5206] bg-[#FF5206]/10 hover:bg-[#FF5206]/20 font-bold"
                           onClick={() => onForwardReport(r)}
                         >
                           Send Admin
@@ -183,8 +183,8 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
               ))}
               {visible.length === 0 && (
                 <tr>
-                  <td colSpan={8} className="p-12 text-center text-slate-400 dark:text-slate-500">
-                    <FileText className="mx-auto mb-2 opacity-30" size={32} />
+                  <td colSpan={8} className="p-12 text-center text-[#A4A4A9] font-semibold selection:none">
+                    <FileText className="mx-auto mb-2 opacity-30 text-[#A4A4A9]" size={32} />
                     No reports match the active state filters.
                   </td>
                 </tr>
@@ -196,7 +196,7 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
 
       {sel && (
         <Modal title={`Session Submission Log: ${sel.school}`} onClose={() => setSel(null)}>
-          <div className="grid grid-cols-2 gap-4 mb-4 text-xs sm:text-sm bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+          <div className="grid grid-cols-2 gap-4 mb-4 text-xs sm:text-sm bg-[#F6F6F6] dark:bg-[#1a0a05] p-4 rounded-2xl border border-[#A4A4A9]/20 dark:border-[#821F0C]">
             {[
               ["School", sel.school],
               ["District Domain", sel.district],
@@ -210,22 +210,22 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
               ["Recipient Target", sel.sentToLabel || "Final Station"]
             ].map(([l, v]) => (
               <div key={l} className="space-y-0.5">
-                <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">{l}</div>
-                <div className="font-bold text-slate-800 dark:text-slate-100">{v}</div>
+                <div className="text-[10px] font-extrabold text-[#A4A4A9] uppercase tracking-widest">{l}</div>
+                <div className="font-bold text-[#821F0C] dark:text-[#FEFEFE]">{v}</div>
               </div>
             ))}
           </div>
 
           <div className="space-y-4">
             <div>
-              <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-1.5">Executed Work details</div>
-              <div className="text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-100 dark:border-slate-800">{sel.session}</div>
+              <div className="text-[10px] font-extrabold text-[#A4A4A9] uppercase tracking-widest mb-1.5">Executed Work details</div>
+              <div className="text-xs text-[#821F0C] dark:text-[#A4A4A9] bg-[#F6F6F6] dark:bg-[#1a0a05] p-3 rounded-xl border border-[#A4A4A9]/25 dark:border-[#821F0C]">{sel.session}</div>
             </div>
 
             {sel.challenges && (
               <div>
-                <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-1.5">Challenges Identified</div>
-                <div className="text-xs text-amber-700 dark:text-amber-400 bg-amber-50/30 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/40 p-3 rounded-xl">
+                <div className="text-[10px] font-extrabold text-[#A4A4A9] uppercase tracking-widest mb-1.5">Challenges Identified</div>
+                <div className="text-xs text-[#FF5206] bg-[#FF5206]/5 border border-[#FF5206]/15 dark:border-[#FF5206]/40 p-3 rounded-xl">
                   {sel.challenges}
                 </div>
               </div>
@@ -233,15 +233,15 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
 
             {sel.success && (
               <div>
-                <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-1.5">Field Success Records</div>
-                <div className="text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-50/30 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40 p-3 rounded-xl">
+                <div className="text-[10px] font-extrabold text-[#A4A4A9] uppercase tracking-widest mb-1.5">Field Success Records</div>
+                <div className="text-xs text-[#A1220B] bg-[#A1220B]/5 border border-[#A1220B]/15 dark:border-[#821F0C]/40 p-3 rounded-xl">
                   {sel.success}
                 </div>
               </div>
             )}
           </div>
 
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#A4A4A9]/25 dark:border-[#821F0C]">
             <Pill s={sel.status} />
             <div className="flex gap-2">
               {can(user.role, "approveReport") && sel.status === "pending" && (

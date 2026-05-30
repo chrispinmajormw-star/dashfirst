@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700;800&family=DM+Sans:wght=400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -13,6 +13,8 @@
 body {
   font-family: var(--font-sans);
   margin: 0;
+  background-color: #FEFEFE;
+  color: #460C04;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -26,85 +28,92 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #A4A4A9;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #821F0C;
 }
 
 /* Dark mode custom scrollbar */
 .dark ::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: #821F0C;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+  background: #A1220B;
 }
 
-/* Leaflet dark theme styling with Oxford Blue, Auburn Purple & Golden Orange */
+/* Leaflet dark theme styling mapping to the allowed color palette */
 .dark .leaflet-popup-content-wrapper,
-.dark .leaflet-popup-tip {
-  background: #14213D !important; /* Oxford Blue */
-  color: #FFFFFF !important; /* Pure White */
-  border: 1px solid #3F2A3B !important; /* Auburn Purple border */
+.dark .leaflet-popup-tip,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #460C04 !important;
+  color: #FEFEFE !important;
+  border: 1px solid #821F0C !important;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.85), 0 4px 6px -2px rgba(0, 0, 0, 0.5) !important;
 }
 
-.dark .leaflet-container a.leaflet-popup-close-button {
-  color: #cbd5e1 !important;
+.dark .leaflet-container a.leaflet-popup-close-button,
+.leaflet-container a.leaflet-popup-close-button {
+  color: #A4A4A9 !important;
 }
 
-.dark .leaflet-container a.leaflet-popup-close-button:hover {
-  color: #FCA311 !important;
+.dark .leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #FF5206 !important;
 }
 
-.dark .leaflet-tooltip {
-  background: #14213D !important; /* Oxford Blue */
-  color: #FFFFFF !important; /* Pure White */
-  border: 1px solid #3F2A3B !important; /* Auburn Purple */
+.dark .leaflet-tooltip,
+.leaflet-tooltip {
+  background: #460C04 !important;
+  color: #FEFEFE !important;
+  border: 1px solid #821F0C !important;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
 }
 
-.dark .leaflet-bar a {
-  background-color: #14213D !important;
-  color: #FFFFFF !important;
-  border-bottom: 1px solid #3F2A3B !important;
+.dark .leaflet-bar a,
+.leaflet-bar a {
+  background-color: #460C04 !important;
+  color: #FEFEFE !important;
+  border-bottom: 1px solid #821F0C !important;
 }
 
-.dark .leaflet-bar a:hover {
-  background-color: #3F2A3B !important;
-  color: #FCA311 !important;
+.dark .leaflet-bar a:hover,
+.leaflet-bar a:hover {
+  background-color: #821F0C !important;
+  color: #FF5206 !important;
 }
 
 /* Deep Theme Global Interceptor and Overrides */
 .dark, .dark body {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
+  background-color: #1a0a05 !important;
+  color: #FEFEFE !important;
 }
 
 /* Base Canvas for Layout Container */
 .dark .bg-slate-950,
 .dark .bg-black,
 .dark \.bg-slate-950 {
-  background-color: #000000 !important;
+  background-color: #1a0a05 !important;
 }
 
-/* Surfaces and Cards (Oxford Blue) */
+/* Surfaces and Cards (Oxford Blue replaced with Dark Red 3) */
 .dark .bg-slate-900,
 .dark .bg-slate-850,
 .dark .bg-white,
 .dark header,
-.dark aside,
+.dark aside:not(.sidebar-dark-custom),
 .dark table,
 .dark .bg-slate-50\/50,
 .dark .bg-slate-50,
 .dark select,
 .dark input,
 .dark textarea {
-  background-color: #14213D !important;
-  color: #FFFFFF !important;
+  background-color: #460C04 !important;
+  color: #FEFEFE !important;
 }
 
 /* Clear sub-elements custom backgrounds */
@@ -112,10 +121,10 @@ body {
 .dark .hover\:bg-slate-50\/30:hover,
 .dark .hover\:bg-slate-800\/25:hover,
 .dark .hover\:bg-slate-800\/20:hover {
-  background-color: rgba(63, 42, 59, 0.25) !important; /* Auburn Plum translucent hover */
+  background-color: rgba(130, 31, 12, 0.25) !important; /* #821F0C translucent hover */
 }
 
-/* High Contrast Borders (Auburn / Deep Purple) */
+/* High Contrast Borders (Dark Red 2) */
 .dark .border-slate-800,
 .dark .border-slate-800\/60,
 .dark .border-slate-800\/80,
@@ -129,10 +138,10 @@ body {
 .dark th,
 .dark td,
 .dark hr {
-  border-color: #3F2A3B !important;
+  border-color: #821F0C !important;
 }
 
-/* Standard Highlight/Branding (Golden Orange FCA311) */
+/* Standard Highlight/Branding (Primary Orange #FF5206) */
 .dark .text-orange-600,
 .dark .text-orange-550,
 .dark .text-orange-500,
@@ -142,22 +151,22 @@ body {
 .dark .border-orange-500,
 .dark .hover\:text-orange-500:hover,
 .dark .text-\[\#e85d04\] {
-  color: #FCA311 !important;
+  color: #FF5206 !important;
 }
 
-/* Input borders and ring focus highlights using Golden Orange and Auburn Plum */
+/* Input borders and ring focus highlights using Primary Orange and Dark Red 2 */
 .dark input:focus,
 .dark select:focus,
 .dark textarea:focus {
-  border-color: #FCA311 !important;
-  box-shadow: 0 0 0 2px rgba(252, 163, 17, 0.2) !important;
+  border-color: #FF5206 !important;
+  box-shadow: 0 0 0 2px rgba(255, 82, 6, 0.2) !important;
 }
 
 /* dynamic badge colors, maps and borders */
 .dark .bg-orange-600,
 .dark .bg-orange-500,
 .dark .bg-orange-500\/10 {
-  background-color: #FCA311 !important;
+  background-color: #FF5206 !important;
 }
 
 .dark .bg-orange-650,
@@ -165,17 +174,18 @@ body {
 .dark .bg-red-600,
 .dark .text-red-500,
 .dark .text-red-600 {
-  color: #FFFFFF !important;
-  background-color: #dc2626 !important;
+  color: #FEFEFE !important;
+  background-color: #A1220B !important;
 }
 
-/* Primary buttons style overrides for Golden Orange with BLACK text for supreme accessibility */
+/* Primary buttons style overrides for Primary Orange with WHITE text for accessibility */
 .dark button.bg-orange-600,
 .dark button.bg-orange-500,
 .dark .bg-orange-600,
+.dark .bg-orange-400,
 .dark .bg-orange-500 {
-  background-color: #FCA311 !important;
-  color: #000000 !important;
+  background-color: #FF5206 !important;
+  color: #FEFEFE !important;
   font-weight: 800 !important;
 }
 
@@ -183,8 +193,8 @@ body {
 .dark button.bg-orange-500:hover,
 .dark .hover\:bg-orange-700:hover,
 .dark .bg-orange-700 {
-  background-color: #E2910C !important;
-  color: #000000 !important;
+  background-color: #A1220B !important;
+  color: #FEFEFE !important;
 }
 
 /* Text readable styles inside buttons and elements */
@@ -196,16 +206,16 @@ body {
 .dark .text-slate-300,
 .dark .text-slate-50,
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #FFFFFF !important;
+  color: #FEFEFE !important;
 }
 
 .dark .text-slate-400,
 .dark .text-slate-450,
 .dark .text-slate-500 {
-  color: #A5B4FC !important; /* Beautiful readable high-contrast indigo-tinted slate */
+  color: #A4A4A9 !important;
 }
 
-/* Badges and custom inline states mapped to Auburn/Deep Violet */
+/* Badges and custom inline states mapped to Dark Red 2 */
 .dark .bg-orange-50,
 .dark .bg-orange-950\/30,
 .dark .bg-orange-950\/20,
@@ -213,101 +223,81 @@ body {
 .dark [style*="background: rgb(255, 241, 230)"],
 .dark [style*="background: #fff1e6"],
 .dark [style*="background-color: rgba(232, 93, 4, 0.1)"]  {
-  background-color: #3F2A3B !important;
-  color: #FFFFFF !important;
+  background-color: #821F0C !important;
+  color: #FEFEFE !important;
 }
 
 .dark [style*="color: rgb(232, 93, 4)"],
 .dark [style*="color: #e85d04"],
 .dark [style*="color: #c44d00"],
 .dark .custom-leaflet-school-marker div > div {
-  color: #FCA311 !important;
+  color: #FF5206 !important;
 }
 
 .dark .custom-leaflet-school-marker div > div {
-  background-color: #FCA311 !important;
+  background-color: #FF5206 !important;
 }
 
 /* Dark theme stats items */
 .dark .bg-slate-50.dark\:bg-slate-950 {
-  background-color: #3F2A3B !important;
-  color: #FFFFFF !important;
+  background-color: #821F0C !important;
+  color: #FEFEFE !important;
 }
 
-/* Sidebar overrides for white background, black text and icons with an orange theme */
-.sidebar-white-custom,
-.dark .sidebar-white-custom,
-.dark aside.sidebar-white-custom {
-  background-color: #FFFFFF !important;
-  background: #FFFFFF !important;
-  color: #0c0a09 !important; /* black default */
-  border-right: 1px solid #e7e5e4 !important;
+/* Sidebar ALWAYS dark panels in BOTH light and dark mode */
+.sidebar-dark-custom,
+.dark .sidebar-dark-custom,
+aside.sidebar-dark-custom,
+.dark aside.sidebar-dark-custom {
+  background-color: #460C04 !important;
+  background: #460C04 !important;
+  color: #F6F6F6 !important;
+  border-right: 1px solid #821F0C !important;
 }
 
-/* Headings, text, labels and helpers inside white sidebar */
-.sidebar-white-custom h1, .dark .sidebar-white-custom h1,
-.sidebar-white-custom h2, .dark .sidebar-white-custom h2,
-.sidebar-white-custom h3, .dark .sidebar-white-custom h3,
-.sidebar-white-custom h4, .dark .sidebar-white-custom h4,
-.sidebar-white-custom h5, .dark .sidebar-white-custom h5,
-.sidebar-white-custom h6, .dark .sidebar-white-custom h6,
-.sidebar-white-custom span:not(.font-extrabold\.text-orange-650):not(.bg-orange-650),
-.dark .sidebar-white-custom span:not(.font-extrabold\.text-orange-650):not(.bg-orange-650),
-.sidebar-white-custom div, .dark .sidebar-white-custom div,
-.sidebar-white-custom b, .dark .sidebar-white-custom b {
-  color: #0c0a09 !important;
+.sidebar-dark-custom h1, .dark .sidebar-dark-custom h1,
+.sidebar-dark-custom h2, .dark .sidebar-dark-custom h2,
+.sidebar-dark-custom h3, .dark .sidebar-dark-custom h3,
+.sidebar-dark-custom h4, .dark .sidebar-dark-custom h4,
+.sidebar-dark-custom h5, .dark .sidebar-dark-custom h5,
+.sidebar-dark-custom h6, .dark .sidebar-dark-custom h6,
+.sidebar-dark-custom span, .dark .sidebar-dark-custom span,
+.sidebar-dark-custom div, .dark .sidebar-dark-custom div,
+.sidebar-dark-custom b, .dark .sidebar-dark-custom b {
+  color: #F6F6F6 !important;
 }
 
-/* Secondary muted or tracking text */
-.sidebar-white-custom .text-muted-custom, .dark .sidebar-white-custom .text-muted-custom,
-.sidebar-white-custom .text-[9.5px], .dark .sidebar-white-custom .text-[9.5px],
-.sidebar-white-custom .text-[10px], .dark .sidebar-white-custom .text-[10px],
-.sidebar-white-custom .text-slate-400, .dark .sidebar-white-custom .text-slate-400,
-.sidebar-white-custom .text-slate-500, .dark .sidebar-white-custom .text-slate-500,
-.sidebar-white-custom .text-white\/30, .dark .sidebar-white-custom .text-white\/30,
-.sidebar-white-custom .text-white\/40, .dark .sidebar-white-custom .text-white\/40 {
-  color: #57534e !important; /* stone-600 */
+/* Group Title text */
+.sidebar-dark-custom .text-group-title,
+.dark .sidebar-dark-custom .text-group-title {
+  color: #A4A4A9 !important;
 }
 
-/* Inactive nav item links */
-.sidebar-white-custom .nav-item-inactive,
-.dark .sidebar-white-custom .nav-item-inactive {
-  color: #44403c !important; /* stone-700 */
+/* Nav Item settings */
+.sidebar-dark-custom .nav-item-inactive,
+.dark .sidebar-dark-custom .nav-item-inactive {
+  color: #F6F6F6 !important;
   background-color: transparent !important;
 }
-.sidebar-white-custom .nav-item-inactive:hover,
-.dark .sidebar-white-custom .nav-item-inactive:hover {
-  background-color: #f5f5f4 !important; /* stone-100 hover */
-  color: #0c0a09 !important;
+
+.sidebar-dark-custom .nav-item-inactive:hover,
+.dark .sidebar-dark-custom .nav-item-inactive:hover {
+  background-color: rgba(130, 31, 12, 0.4) !important; /* bg-[#821F0C]/40 */
+  color: #FEFEFE !important;
 }
 
-/* Active navigation item in desktop sidebar (orange theme) */
-.sidebar-white-custom .nav-item-active,
-.dark .sidebar-white-custom .nav-item-active {
-  background-color: #ffedd5 !important; /* Soft orange tint */
-  color: #ea580c !important; /* Beautiful orange text */
+/* Active Nav Link */
+.sidebar-dark-custom .nav-item-active,
+.dark .sidebar-dark-custom .nav-item-active,
+.sidebar-dark-custom .nav-item-active-mobile,
+.dark .sidebar-dark-custom .nav-item-active-mobile {
+  background-color: #FF5206 !important;
+  color: #FEFEFE !important;
   font-weight: 700 !important;
-  border-left: 4px solid #f97316 !important; /* Orange left border indicator */
 }
 
-/* Active navigation item in mobile sidebar (orange theme) */
-.sidebar-white-custom .nav-item-active-mobile,
-.dark .sidebar-white-custom .nav-item-active-mobile {
-  background-color: #f97316 !important; /* Vibrant orange bg */
-  color: #ffffff !important; /* White text */
-  font-weight: 750 !important;
+/* Borders inside sidebar */
+.sidebar-dark-custom .sidebar-border,
+.dark .sidebar-dark-custom .sidebar-border {
+  border-color: #821F0C !important;
 }
-
-/* Border overrides inside the sidebar */
-.sidebar-white-custom .border-white\/5,
-.dark .sidebar-white-custom .border-white\/5,
-.sidebar-white-custom .border-slate-800,
-.dark .sidebar-white-custom .border-slate-800,
-.sidebar-white-custom .border-slate-100,
-.dark .sidebar-white-custom .border-slate-100,
-.sidebar-white-custom .border-slate-200,
-.dark .sidebar-white-custom .border-slate-200 {
-  border-color: #e7e5e4 !important; /* stone-200 boundary */
-}
-
-

@@ -64,13 +64,13 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
       if (!coords) return;
       const isActive = ACTIVE_DISTRICTS.has(district.name);
       
-      const fillColor = isActive ? "#16a34a" : (darkMode ? "#4b5563" : "#9ca3af");
+      const fillColor = isActive ? "#FF5206" : (darkMode ? "#821F0C" : "#A4A4A9");
       const radius = isActive ? 7 : 5;
 
       L.circleMarker([coords.lat, coords.lng], {
         radius,
         fillColor,
-        color: darkMode ? "#111827" : "#fff",
+        color: darkMode ? "#460C04" : "#FEFEFE",
         weight: 1.8,
         fillOpacity: isActive ? 0.85 : 0.5
       }).addTo(map).bindTooltip(district.name, {
@@ -85,7 +85,7 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
       // Connect schools with lines to cluster center
       cluster.schools.forEach(school => {
         L.polyline([[cluster.lat, cluster.lng], [school.lat, school.lng]], {
-          color: darkMode ? "#FCA311" : "#e85d04",
+          color: "#FF5206",
           weight: 1.8,
           opacity: 0.65,
           dashArray: "5 5"
@@ -97,7 +97,7 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
         const schoolIcon = L.divIcon({
           className: "custom-leaflet-school-marker",
           html: `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer">
-            <div style="width:10px;height:10px;border-radius:50%;background:${darkMode ? '#FCA311' : '#e85d04'};border:2px solid ${darkMode ? '#14213D' : '#fff'};box-shadow:0 1px 4px rgba(0,0,0,.35);flex-shrink:0"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#FF5206;border:2px solid ${darkMode ? '#460C04' : '#FEFEFE'};box-shadow:0 1px 4px rgba(0,0,0,.35);flex-shrink:0"></div>
           </div>`,
           iconAnchor: [5, 5]
         });
@@ -105,12 +105,12 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
         L.marker([school.lat, school.lng], { icon: schoolIcon, zIndexOffset: 200 })
           .addTo(map)
           .bindPopup(
-            `<div style="font-family:'Plus Jakarta Sans',sans-serif;min-width:180px;padding:2px 0;color:${darkMode ? '#FFFFFF' : '#111827'}">
-              <div style="font-weight:800;font-size:12.5px;margin-bottom:3px;color:${darkMode ? '#FFFFFF' : '#111827'}">${school.name}</div>
-              <div style="font-size:11px;color:${darkMode ? '#A5B4FC' : '#6b7280'};margin-bottom:4px">
-                <span style="color:${darkMode ? '#FCA311' : '#e85d04'}">●</span> ${cluster.district} · Lead: <b>${cluster.lead}</b>
+            `<div style="font-family:'Plus Jakarta Sans',sans-serif;min-width:180px;padding:2px 0;color:${darkMode ? '#FEFEFE' : '#460C04'}">
+              <div style="font-weight:800;font-size:12.5px;margin-bottom:3px;color:${darkMode ? '#FEFEFE' : '#460C04'}">${school.name}</div>
+              <div style="font-size:11px;color:${darkMode ? '#A4A4A9' : '#821F0C'};margin-bottom:4px">
+                <span style="color:#FF5206">●</span> ${cluster.district} · Lead: <b>${cluster.lead}</b>
               </div>
-              <span style="display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;font-weight:700;background:${darkMode ? '#3F2A3B' : '#fff1e6'};color:${darkMode ? '#FFFFFF' : '#c44d00'} font-sans">✅ ETT Trained</span>
+              <span style="display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;font-weight:700;background:${darkMode ? '#821F0C' : '#F6F6F6'};color:${darkMode ? '#FEFEFE' : '#FF5206'} font-sans">✅ ETT Trained</span>
             </div>`
           );
       });
@@ -119,7 +119,7 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
       const centerIcon = L.divIcon({
         className: "custom-leaflet-center-marker",
         html: `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer">
-          <div style="width:14px;height:14px;border-radius:50%;background:${darkMode ? '#3F2A3B' : '#0f1623'};border:3px solid ${darkMode ? '#FCA311' : '#e85d04'};box-shadow:0 2px 6px rgba(0,0,0,.4);flex-shrink:0"></div>
+          <div style="width:14px;height:14px;border-radius:50%;background:${darkMode ? '#1a0a05' : '#460C04'};border:3px solid #FF5206;box-shadow:0 2px 6px rgba(0,0,0,.4);flex-shrink:0"></div>
         </div>`,
         iconAnchor: [7, 7]
       });
@@ -127,18 +127,18 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
       const centerMarker = L.marker([cluster.lat, cluster.lng], { icon: centerIcon, zIndexOffset: 500 }).addTo(map);
       
       const schoolListHTML = cluster.schools.map(s =>
-        `<div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid ${darkMode ? '#3F2A3B' : '#f3f4f6'}">
-          <span style="width:6px;height:6px;border-radius:50%;background:${darkMode ? '#FCA311' : '#e85d04'};flex-shrink:0;display:inline-block"></span>
-          <span style="font-size:11px;color:${darkMode ? '#cbd5e1' : '#374151'}">${s.name}</span>
+        `<div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid ${darkMode ? '#821F0C' : '#F6F6F6'}">
+          <span style="width:6px;height:6px;border-radius:50%;background:#FF5206;flex-shrink:0;display:inline-block"></span>
+          <span style="font-size:11px;color:${darkMode ? '#A4A4A9' : '#821F0C'}">${s.name}</span>
         </div>`
       ).join("");
 
       centerMarker.bindPopup(
-        `<div style="font-family:'Plus Jakarta Sans',sans-serif;min-width:220px;padding:2px 0;color:${darkMode ? '#FFFFFF' : '#0f1623'}">
-          <div style="font-weight:800;font-size:14px;margin-bottom:4px;color:${darkMode ? '#FFFFFF' : '#0f1623'}">${cluster.name}</div>
-          <div style="font-size:11px;color:${darkMode ? '#A5B4FC' : '#4b5563'};margin-bottom:4px">📍 District: <b>${cluster.district}</b> · Lead: <b>${cluster.lead}</b></div>
-          <div style="font-size:11px;color:${darkMode ? '#A5B4FC' : '#4b5563'};margin-bottom:8px">👥 Learners: <b>${cluster.students}</b> · Trained: <b>${cluster.trained}/${cluster.schools.length}</b></div>
-          <div style="font-size:9.5px;font-weight:700;text-transform:uppercase;color:${darkMode ? '#A5B4FC' : '#9ca3af'};margin-bottom:4px">Schools connected</div>
+        `<div style="font-family:'Plus Jakarta Sans',sans-serif;min-width:220px;padding:2px 0;color:${darkMode ? '#FEFEFE' : '#460C04'}">
+          <div style="font-weight:800;font-size:14px;margin-bottom:4px;color:${darkMode ? '#FEFEFE' : '#460C04'}">${cluster.name}</div>
+          <div style="font-size:11px;color:${darkMode ? '#A4A4A9' : '#821F0C'};margin-bottom:4px">📍 District: <b>${cluster.district}</b> · Lead: <b>${cluster.lead}</b></div>
+          <div style="font-size:11px;color:${darkMode ? '#A4A4A9' : '#821F0C'};margin-bottom:8px">👥 Learners: <b>${cluster.students}</b> · Trained: <b>${cluster.trained}/${cluster.schools.length}</b></div>
+          <div style="font-size:9.5px;font-weight:700;text-transform:uppercase;color:${darkMode ? '#A4A4A9' : '#A4A4A9'};margin-bottom:4px">Schools connected</div>
           ${schoolListHTML}
         </div>`
       );
@@ -152,39 +152,39 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
       map.remove();
       mapRef.current = null;
     };
-  }, [selectedRegion, darkMode]);
+  }, [selectedRegion, darkMode, filteredClusters, flyToCluster]);
 
   return (
     <div className="space-y-4 flex flex-col h-full animate-fade-in-up">
       <div>
         <Kicker text="Malawi Interactive coverage map" />
-        <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50 leading-tight">
+        <h1 className="text-2xl font-black text-[#460C04] dark:text-[#FEFEFE] leading-tight">
           School Clusters & Hubs
         </h1>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-t-2xl p-4 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
+      <div className="bg-[#FEFEFE] dark:bg-[#460C04] border border-[#A4A4A9]/25 dark:border-[#821F0C] rounded-t-2xl p-4 flex flex-wrap items-center gap-4 text-xs font-semibold text-[#821F0C] dark:text-[#A4A4A9]">
         {[
-          { color: "bg-emerald-600", label: "Active District" },
-          { color: "bg-slate-400 dark:bg-slate-600", label: "Planned Expansion" },
-          { color: "bg-orange-500", label: "Trained School" },
-          { color: "bg-slate-900 dark:bg-slate-700 border-2 border-orange-500", label: "Cluster Centre" }
+          { color: "bg-[#FF5206]", label: "Active District" },
+          { color: "bg-[#A4A4A9]", label: "Planned Expansion" },
+          { color: "bg-[#A1220B]", label: "Trained School" },
+          { color: "bg-[#460C04] dark:bg-[#821F0C] border-2 border-[#FF5206]", label: "Cluster Centre" }
         ].map(item => (
           <span key={item.label} className="flex items-center gap-2">
             <span className={`w-3 h-3 rounded-full ${item.color} shadow-sm`} />
             <span>{item.label}</span>
           </span>
         ))}
-        <span className="ml-auto text-[11px] text-slate-400 font-medium">
+        <span className="ml-auto text-[11px] text-[#A4A4A9] font-medium">
           Click any centre marker to view active statistics
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 border border-slate-200 dark:border-slate-800/80 rounded-b-2xl overflow-hidden h-[60vh] sm:h-[65vh]">
+      <div className="grid grid-cols-1 md:grid-cols-4 border border-[#A4A4A9]/25 dark:border-[#821F0C] rounded-b-2xl overflow-hidden h-[60vh] sm:h-[65vh]">
         {/* Navigation Rail */}
-        <div className="bg-slate-50 dark:bg-slate-900/60 border-r border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden max-h-[160px] md:max-h-none md:col-span-1">
-          <div className="p-3 border-b border-slate-200 dark:border-slate-800 shrink-0">
-            <div className="text-[10px] font-extrabold text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-1.5 flex items-center gap-1">
+        <div className="bg-[#F6F6F6] dark:bg-[#1a0a05] border-r border-[#A4A4A9]/25 dark:border-[#821F0C] flex flex-col overflow-hidden max-h-[160px] md:max-h-none md:col-span-1">
+          <div className="p-3 border-b border-[#A4A4A9]/25 dark:border-[#821F0C] shrink-0">
+            <div className="text-[10px] font-extrabold text-[#A4A4A9] dark:text-[#A4A4A9] uppercase tracking-widest mb-1.5 flex items-center gap-1">
               <Sliders size={12} /> Region scope
             </div>
             <div className="flex flex-wrap gap-1">
@@ -194,8 +194,8 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
                   onClick={() => setSelectedRegion(r)}
                   className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold cursor-pointer transition-all ${
                     selectedRegion === r
-                      ? "bg-slate-900 text-white dark:bg-orange-600"
-                      : "bg-slate-200/50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                      ? "bg-[#FF5206] text-[#FEFEFE]"
+                      : "bg-[#F6F6F6] dark:bg-[#460C04] text-[#821F0C] dark:text-[#A4A4A9] hover:bg-[#FF5206]/10"
                   }`}
                 >
                   {r}
@@ -205,7 +205,7 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
           </div>
 
           <div className="flex-1 overflow-y-auto p-2 space-y-1.5">
-            <div className="text-[9.5px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-2 py-1 select-none">
+            <div className="text-[9.5px] font-extrabold text-[#A4A4A9] dark:text-slate-500 uppercase tracking-wider px-2 py-1 select-none">
               Clusters ({filteredClusters.length})
             </div>
             {filteredClusters.map(c => {
@@ -216,12 +216,12 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
                   onClick={() => { flyToCluster(c); setSelectedCluster(c); }}
                   className={`p-2.5 rounded-lg border text-left cursor-pointer transition-all ${
                     isActive
-                      ? "border-orange-500 bg-orange-50/20 dark:bg-orange-950/15"
-                      : "border-slate-200/40 dark:border-slate-800 bg-white/40 dark:bg-slate-950/20 hover:border-slate-300"
+                      ? "border-[#FF5206] bg-[#FF5206]/10 dark:bg-[#821F0C]/20"
+                      : "border-[#A4A4A9]/20 dark:border-[#821F0C] bg-[#FEFEFE]/45 dark:bg-[#1a0a05]/20 hover:border-[#FF5206]/40"
                   }`}
                 >
-                  <div className="font-bold text-xs text-slate-900 dark:text-slate-100 truncate">{c.name}</div>
-                  <div className="text-[10px] text-slate-400 dark:text-slate-400 mt-0.5">
+                  <div className="font-bold text-xs text-[#460C04] dark:text-[#FEFEFE] truncate">{c.name}</div>
+                  <div className="text-[10px] text-[#A4A4A9] dark:text-[#A4A4A9] mt-0.5">
                     📍 {c.district} · {c.schools.length} schools
                   </div>
                 </div>
@@ -247,21 +247,21 @@ export const MapsPage: React.FC<MapsPageProps> = ({ setPage, user, darkMode }) =
               ["Trained Teachers", selectedCluster.trained],
               ["Cluster Coordinator", selectedCluster.lead],
             ].map(([l, v]) => (
-              <div key={l} className="bg-slate-50 dark:bg-slate-950 p-2.5 rounded-xl border border-slate-100 dark:border-slate-850">
-                <div className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest mb-1">{l}</div>
-                <div className="font-bold text-slate-800 dark:text-slate-100">{v}</div>
+              <div key={l} className="bg-[#F6F6F6] dark:bg-[#1a0a05] p-2.5 rounded-xl border border-[#A4A4A9]/25 dark:border-[#821F0C]">
+                <div className="text-[9px] font-extrabold text-[#A4A4A9] uppercase tracking-widest mb-1">{l}</div>
+                <div className="font-bold text-[#821F0C] dark:text-[#FEFEFE]">{v}</div>
               </div>
             ))}
           </div>
 
           <div>
-            <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-2">
+            <div className="text-[10px] font-extrabold text-[#A4A4A9] uppercase tracking-widest mb-2">
               Affiliated Schools
             </div>
             <div className="space-y-1">
               {selectedCluster.schools.map((s, i) => (
-                <div key={i} className="flex items-center gap-2 py-1.5 border-b border-slate-50 dark:border-slate-800/40 text-xs text-slate-700 dark:text-slate-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                <div key={i} className="flex items-center gap-2 py-1.5 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40 text-xs text-[#821F0C] dark:text-[#A4A4A9]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF5206]" />
                   <span>{s.name}</span>
                 </div>
               ))}

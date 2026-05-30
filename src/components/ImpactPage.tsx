@@ -19,9 +19,9 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
     {
       id: 1,
       emoji: "👧",
-      color: "bg-pink-500/5 border-pink-100 dark:border-pink-900/30",
-      accent: "text-pink-600 dark:text-pink-400",
-      accentBg: "bg-pink-100/60 dark:bg-pink-950/40",
+      color: "bg-[#A1220B]/5 border-[#A1220B]/10",
+      accent: "text-[#A1220B]",
+      accentBg: "bg-[#A1220B]/10",
       title: "Breaking the Silence in Mzimba",
       quote: "I learned that my voice is my power.",
       who: "Chifundo, 14 — Student",
@@ -33,9 +33,9 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
     {
       id: 2,
       emoji: "👦",
-      color: "bg-blue-500/5 border-blue-100 dark:border-blue-900/30",
-      accent: "text-blue-600 dark:text-blue-400",
-      accentBg: "bg-blue-100/60 dark:bg-blue-950/40",
+      color: "bg-[#FF5206]/5 border-[#FF5206]/10",
+      accent: "text-[#FF5206]",
+      accentBg: "bg-[#FF5206]/10",
       title: "A Hero Emerges in Lilongwe",
       quote: "Being a hero means helping someone in need.",
       who: "John, 13 — Student",
@@ -47,9 +47,9 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
     {
       id: 3,
       emoji: "👩‍🏫",
-      color: "bg-emerald-505 bg-emerald-500/5 border-emerald-100 dark:border-emerald-900/30",
-      accent: "text-emerald-600 dark:text-emerald-400",
-      accentBg: "bg-emerald-100/60 dark:bg-emerald-950/40",
+      color: "bg-[#821F0C]/5 border-[#821F0C]/10",
+      accent: "text-[#821F0C]",
+      accentBg: "bg-[#821F0C]/10",
       title: "Teacher Training Transforms a School",
       quote: "Our school now has a referral pathway that actually works.",
       who: "Mr. Mkandawire — Head Teacher, Kawale Primary",
@@ -61,9 +61,9 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
     {
       id: 4,
       emoji: "🌟",
-      color: "bg-amber-500/5 border-amber-100 dark:border-amber-900/30",
-      accent: "text-amber-600 dark:text-amber-400",
-      accentBg: "bg-amber-100/60 dark:bg-amber-955 dark:bg-amber-950/40",
+      color: "bg-[#A1220B]/5 border-[#A1220B]/10",
+      accent: "text-[#A1220B]",
+      accentBg: "bg-[#A1220B]/10",
       title: "Girls Lead the Way in Blantyre",
       quote: "We are not victims — we are leaders.",
       who: "Grace, 15 — GESD Graduate & Peer Mentor",
@@ -75,9 +75,9 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
     {
       id: 5,
       emoji: "🤝",
-      color: "bg-violet-500/5 border-violet-100 dark:border-violet-900/30",
-      accent: "text-violet-600 dark:text-violet-400",
-      accentBg: "bg-violet-100/60 dark:bg-violet-950/40",
+      color: "bg-[#FF5206]/5 border-[#FF5206]/10",
+      accent: "text-[#FF5206]",
+      accentBg: "bg-[#FF5206]/10",
       title: "Boys & Girls Build a Safety Charter Together",
       quote: "We signed it together — it belongs to all of us.",
       who: "Combined Class — Karonga Primary",
@@ -89,9 +89,9 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
     {
       id: 6,
       emoji: "📣",
-      color: "bg-red-500/5 border-red-100 dark:border-red-900/30",
-      accent: "text-red-600 dark:text-red-400",
-      accentBg: "bg-red-100/60 dark:bg-red-950/40",
+      color: "bg-[#460C04]/5 border-[#460C04]/10",
+      accent: "text-[#460C04] dark:text-[#FEFEFE]",
+      accentBg: "bg-[#460C04]/10",
       title: "Community Father Changes His Stance",
       quote: "I used to think this was not men's business. Now I know it is.",
       who: "Samuel Phiri — Community Father & Parent",
@@ -127,19 +127,19 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Banner */}
-      <div className="bg-slate-900 dark:bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-xl shadow-slate-950/5 p-4">
-        <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-orange-600/10" />
+      <div className="bg-[#460C04] border border-[#821F0C] rounded-3xl p-6 sm:p-8 text-[#FEFEFE] relative overflow-hidden shadow-xl shadow-slate-950/5">
+        <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-[#FF5206]/10" />
         <div className="relative space-y-4">
           <div>
-            <span className="text-xs font-bold bg-orange-600/15 border border-orange-500/20 text-orange-500 rounded-full px-3 py-1 font-semibold spacing-wider uppercase">
+            <span className="text-xs font-bold bg-[#FF5206]/15 border border-[#FF5206]/20 text-[#FF5206] rounded-full px-3 py-1 uppercase tracking-wider">
               Real Impact · Empowering Lives
             </span>
             <h1 className="text-2xl sm:text-3xl font-black mt-3">Malawi Field Impact</h1>
-            <p className="text-sm text-slate-400 mt-1 max-w-xl">
+            <p className="text-sm text-[#A4A4A9] mt-1 max-w-xl">
               Every data point in our system represents an active young person. Read how communities are resisting GBV and building confidence.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950/40 p-3 rounded-2xl border border-slate-800/40 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#1a0a05]/40 p-3 rounded-2xl border border-[#821F0C]/40 text-center">
             {[
               ["592,200+", "Learners Reached"],
               ["665+", "TOTs Trained"],
@@ -147,8 +147,8 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
               ["15", "Active Regions"]
             ].map(([v, l]) => (
               <div key={l} className="space-y-0.5">
-                <div className="text-xl sm:text-2xl font-black text-orange-500">{v}</div>
-                <div className="text-[9px] text-slate-400 font-bold uppercase tracking-wide">{l}</div>
+                <div className="text-xl sm:text-2xl font-black text-[#FF5206]">{v}</div>
+                <div className="text-[9px] text-[#A4A4A9] font-bold uppercase tracking-wide">{l}</div>
               </div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
       <div className="flex flex-wrap items-center justify-between gap-4 mt-8">
         <div>
           <Kicker text="Voices From Active Zones" />
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 m-0">Stories of Transformation</h2>
+          <h2 className="text-xl font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">Stories of Transformation</h2>
         </div>
         <Btn onClick={() => setShowForm(true)} className="px-5">
           <Heart size={15} /> Link Your Story
@@ -172,11 +172,11 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
           return (
             <div
               key={s.id}
-              className={`p-6 rounded-2xl border flex flex-col justify-between ${s.color} transition-all duration-200 hover:shadow-md hover:-translate-y-1`}
+              className={`p-6 rounded-2xl border flex flex-col justify-between ${s.color} transition-all duration-200 hover:shadow-md hover:-translate-y-1 bg-[#FEFEFE] dark:bg-[#460C04]`}
             >
               <div>
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/80 dark:bg-slate-900/40 flex items-center justify-center text-xl shadow-sm border border-slate-100 dark:border-slate-800/20">
+                  <div className="w-10 h-10 rounded-xl bg-[#FEFEFE]/80 dark:bg-[#460C04]/40 flex items-center justify-center text-xl shadow-sm border border-[#A4A4A9]/20 dark:border-[#821F0C]/20">
                     {s.emoji}
                   </div>
                   <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${s.accentBg} ${s.accent}`}>
@@ -184,30 +184,30 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
                   </span>
                 </div>
                 
-                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 leading-tight mb-2">
+                <h3 className="text-base font-bold text-[#460C04] dark:text-[#FEFEFE] leading-tight mb-2">
                   {s.title}
                 </h3>
                 
                 <div className={`border-l-2 p-3 pl-3.5 mb-4 my-2 italic`} style={{ borderColor: 'currentColor' }}>
-                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-[#821F0C] dark:text-[#FEFEFE] leading-relaxed font-medium">
                     "{s.quote}"
                   </p>
                 </div>
 
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-bold mb-3">— {s.who}</div>
+                <div className="text-[11px] text-[#A4A4A9] font-bold mb-3">— {s.who}</div>
 
                 {isExp && (
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-3 pt-3 border-t border-slate-200/20 mb-3 block">
+                  <p className="text-xs text-[#821F0C] dark:text-[#A4A4A9] leading-relaxed mt-3 pt-3 border-t border-[#A4A4A9]/20 mb-3 block">
                     {s.full}
                   </p>
                 )}
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-slate-400 mt-4">
+              <div className="flex items-center justify-between text-[10px] text-[#A4A4A9] mt-4">
                 <span>📍 {s.district} · 📅 {s.date}</span>
                 <button
                   onClick={() => setExpanded(isExp ? null : s.id)}
-                  className={`px-2.5 py-1 rounded bg-white hover:bg-slate-50 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:bg-slate-900 text-xs font-bold cursor-pointer transition-colors ${s.accent}`}
+                  className={`px-2.5 py-1 rounded bg-[#FEFEFE] hover:bg-[#F6F6F6] border border-[#A4A4A9]/30 dark:border-[#821F0C] hover:border-[#A4A4A9]/50 dark:bg-[#460C04] text-xs font-bold cursor-pointer transition-colors ${s.accent}`}
                 >
                   {isExp ? "Hide Info ▲" : "Read Full ▼"}
                 </button>
@@ -219,27 +219,27 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         {/* Timeline Milestones */}
-        <Card className="p-6">
+        <Card className="p-6 bg-[#FEFEFE] border border-[#A4A4A9]/25">
           <div className="flex items-center gap-3 mb-5">
-            <span className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400">
+            <span className="p-2 rounded-xl bg-[#FF5206]/10 text-[#FF5206]">
               <Star size={18} />
             </span>
-            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 m-0">ScaleUp Program Milestones</h3>
+            <h3 className="text-base font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">ScaleUp Program Milestones</h3>
           </div>
 
           <div className="relative pl-6 space-y-5">
-            <div className="absolute left-1.5 top-0.5 bottom-1.5 w-0.5 bg-orange-100 dark:bg-orange-950/60" />
+            <div className="absolute left-1.5 top-0.5 bottom-1.5 w-0.5 bg-[#FF5206]/20 dark:bg-[#821F0C]/40" />
             {MILESTONES.map((m, i) => {
               const isLast = i === MILESTONES.length - 1;
               return (
                 <div key={i} className="relative flex gap-4 items-start text-xs sm:text-sm">
-                  <div className={`absolute -left-[23px] top-1 w-3 h-3 rounded-full border-2 border-orange-500 ${isLast ? 'bg-orange-500' : 'bg-white dark:bg-slate-900'}`} />
-                  <div className={`p-3 rounded-xl border w-full flex items-center justify-between ${isLast ? 'border-orange-150 bg-orange-50/10 dark:border-orange-900/20 dark:bg-orange-950/10' : 'border-slate-100 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-950/20'}`}>
+                  <div className={`absolute -left-[23px] top-1 w-3 h-3 rounded-full border-2 border-[#FF5206] ${isLast ? 'bg-[#FF5206]' : 'bg-[#FEFEFE] dark:bg-[#460C04]'}`} />
+                  <div className={`p-3 rounded-xl border w-full flex items-center justify-between ${isLast ? 'border-[#FF5206]/30 bg-[#FF5206]/10 dark:border-[#821F0C]/30 dark:bg-[#821F0C]/10' : 'border-[#A4A4A9]/25 dark:border-[#821F0C] bg-[#F6F6F6]/40 dark:bg-[#1a0a05]/20'}`}>
                     <div className="flex gap-3">
-                      <span className="font-extrabold text-orange-600 dark:text-orange-400 text-xs">{m.year}</span>
-                      <span className="text-slate-700 dark:text-slate-300 text-xs leading-normal">{m.event}</span>
+                      <span className="font-extrabold text-[#FF5206] dark:text-[#FF5206] text-xs">{m.year}</span>
+                      <span className="text-[#821F0C] dark:text-[#A4A4A9] text-xs leading-normal">{m.event}</span>
                     </div>
-                    {isLast && <span className="bg-orange-600 text-white font-bold text-[9px] uppercase px-1.5 py-0.5 rounded scale-90">Current</span>}
+                    {isLast && <span className="bg-[#FF5206] text-[#FEFEFE] font-bold text-[9px] uppercase px-1.5 py-0.5 rounded scale-90">Current</span>}
                   </div>
                 </div>
               );
@@ -248,25 +248,25 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
         </Card>
 
         {/* Media references */}
-        <Card className="p-6">
+        <Card className="p-6 bg-[#FEFEFE] border border-[#A4A4A9]/25">
           <div className="flex items-center gap-3 mb-5">
-            <span className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400">
+            <span className="p-2 rounded-xl bg-[#FF5206]/10 text-[#FF5206]">
               <Newspaper size={18} />
             </span>
-            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 m-0">State Recognition & Press</h3>
+            <h3 className="text-base font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">State Recognition & Press</h3>
           </div>
 
           <div className="space-y-3.5">
             {PRESS.map((p, i) => (
-              <div key={i} className="flex gap-3.5 items-center p-3 rounded-xl border border-slate-100 dark:border-slate-800/60 bg-slate-50/30 dark:bg-slate-950/10">
-                <div className="w-9 h-9 text-lg rounded-xl bg-orange-50 dark:bg-orange-950/20 flex items-center justify-center shrink-0">
+              <div key={i} className="flex gap-3.5 items-center p-3 rounded-xl border border-[#A4A4A9]/25 dark:border-[#821F0C]/60 bg-[#F6F6F6]/30 dark:bg-[#1a0a05]/10">
+                <div className="w-9 h-9 text-lg rounded-xl bg-[#FF5206]/10 flex items-center justify-center shrink-0">
                   📰
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="font-bold text-slate-950 dark:text-slate-50 text-xs leading-snug truncate" title={p.headline}>
+                  <div className="font-bold text-[#460C04] dark:text-[#FEFEFE] text-xs leading-snug truncate" title={p.headline}>
                     {p.headline}
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 font-semibold uppercase">{p.outlet} · {p.date}</div>
+                  <div className="text-[10px] text-[#A4A4A9] mt-1 font-semibold uppercase">{p.outlet} · {p.date}</div>
                 </div>
               </div>
             ))}
@@ -279,8 +279,8 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
           {submitted ? (
             <div className="text-center py-6 space-y-4">
               <span className="text-5xl block">💖</span>
-              <h3 className="text-lg font-bold text-slate-950 dark:text-slate-50 m-0">We Received Your Voice!</h3>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
+              <h3 className="text-lg font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">We Received Your Voice!</h3>
+              <p className="text-xs sm:text-sm text-[#821F0C] dark:text-[#A4A4A9] leading-relaxed max-w-sm mx-auto">
                 Thank you! Your submission is handled per high confidentiality protocols. We only publish records after explicit district administrator authentication.
               </p>
               <Btn onClick={() => { setShowForm(false); setSubmitted(false); }} className="px-5 mt-4">
@@ -288,8 +288,8 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
               </Btn>
             </div>
           ) : (
-            <div className="space-y-4 text-xs">
-              <p className="text-slate-500 dark:text-slate-400 m-0 leading-relaxed text-xs">
+            <div className="space-y-4 text-xs text-[#821F0C] dark:text-[#A4A4A9]">
+              <p className="text-[#A4A4A9] m-0 leading-relaxed text-xs">
                 Share any milestone or successful intervention. You can choose to be anonymous or select an alternative alias.
               </p>
               <FInput label="First Name (or 'Anonymous') *" placeholder="e.g. Samuel or Anonymous" value={storyForm.name} onChange={e => setStoryForm(p => ({ ...p, name: e.target.value }))} />
@@ -307,7 +307,7 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({ reports, showToast, user
               </FSelect>
               <FArea label="Your Field Experience Summary / Story *" placeholder="Write details about the change pattern or class transformation." value={storyForm.story} onChange={e => setStoryForm(p => ({ ...p, story: e.target.value }))} />
               
-              <div className="bg-emerald-500/5 text-emerald-700 dark:text-emerald-400 p-3 rounded-xl text-[10.5px] border border-emerald-100 dark:border-emerald-900/30 leading-snug">
+              <div className="bg-[#A1220B]/5 text-[#A1220B] p-3 rounded-xl text-[10.5px] border border-[#A1220B]/15 dark:border-[#821F0C]/40 leading-snug">
                 🔒 Data security compliant. Case files containing coordinates of affected pupils are redacted on export.
               </div>
 

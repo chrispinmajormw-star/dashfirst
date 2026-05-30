@@ -137,12 +137,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4 transition-colors">
-      <Card className="w-full max-w-md p-8 text-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
+    <div className="min-h-screen bg-[#F6F6F6] dark:bg-[#1a0a05] flex items-center justify-center p-4 transition-colors">
+      <Card className="w-full max-w-md p-8 text-center bg-[#FEFEFE] dark:bg-[#460C04] border border-[#A4A4A9]/25 dark:border-[#821F0C]/80 shadow-xl">
         <div className="mb-6 flex flex-col items-center">
           <AfricaLogo size={42} variant="full" className="mb-3" />
-          <h1 className="text-xl font-black text-slate-900 dark:text-slate-50 mt-2 m-0">ETT Malawi Program Portal</h1>
-          <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Ujamaa Pamodzi Africa GBV Prevention</p>
+          <h1 className="text-xl font-black text-[#460C04] dark:text-[#FEFEFE] mt-2 m-0">ETT Malawi Program Portal</h1>
+          <p className="text-xs text-[#A4A4A9] dark:text-[#A4A4A9] mt-1">Ujamaa Pamodzi Africa GBV Prevention</p>
         </div>
 
         {mode === 'choice' && (
@@ -155,16 +155,16 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
 
         {mode === 'login' && (
           <div className="space-y-4">
-            <h2 className="text-sm font-bold text-slate-800 dark:text-white mb-4 block">Sign In</h2>
+            <h2 className="text-sm font-bold text-[#821F0C] dark:text-[#FEFEFE] mb-4 block">Sign In</h2>
             <FInput label="Email address *" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="coordinator@ujamaa.mw" />
             <FInput label="Password *" type="password" value={pass} onChange={e => setPass(e.target.value)} placeholder="••••••••" />
             {err && (
-              <div className="bg-red-500/5 text-red-600 border border-red-500/10 rounded-xl p-2.5 text-xs text-left font-bold leading-normal">
+              <div className="bg-[#A1220B]/5 text-[#A1220B] border border-[#A1220B]/10 rounded-xl p-2.5 text-xs text-left font-bold leading-normal">
                 ⚠️ {err}
               </div>
             )}
             <Btn full onClick={doLogin} disabled={loading}>{loading ? "Signing In..." : "Confirm Sign In"}</Btn>
-            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-slate-400 hover:text-slate-600 block mx-auto">
+            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-[#A4A4A9] hover:text-[#FF5206] block mx-auto cursor-pointer">
               ← Back
             </button>
           </div>
@@ -172,7 +172,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
 
         {mode === 'register' && (
           <div className="space-y-3 max-h-[70vh] overflow-y-auto pr-1">
-            <h2 className="text-sm font-bold text-slate-800 dark:text-white mb-2 block">Account Registration</h2>
+            <h2 className="text-sm font-bold text-[#821F0C] dark:text-[#FEFEFE] mb-2 block">Account Registration</h2>
             <FInput label="Full Name *" value={reg.name} onChange={e => setReg({ ...reg, name: e.target.value })} />
             <FSelect label="Malawian District Match *" value={reg.district} onChange={e => setReg({ ...reg, district: e.target.value })}>
               <option value="">Choose District...</option>
@@ -183,12 +183,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onPublicView, onRegister
             <FInput label="Associated School Hub" placeholder="e.g. Mbayani Primary" value={reg.school} onChange={e => setReg({ ...reg, school: e.target.value })} />
             <FInput label="Current Password *" type="password" value={reg.password} onChange={e => setReg({ ...reg, password: e.target.value })} />
             {err && (
-              <div className="bg-red-500/5 text-red-650 text-red-600 p-2 border border-red-500/10 rounded text-xs">
+              <div className="bg-[#A1220B]/5 text-[#A1220B] p-2 border border-[#A1220B]/10 rounded text-xs">
                 {err}
               </div>
             )}
             <Btn full onClick={createAccount}>Register Account</Btn>
-            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-slate-400 hover:text-slate-600 block mx-auto">
+            <button onClick={() => { setMode('choice'); setErr(''); }} className="mt-2 text-xs font-bold text-[#A4A4A9] hover:text-[#FF5206] block mx-auto cursor-pointer">
               ← Back
             </button>
           </div>
@@ -990,18 +990,18 @@ export default function App() {
 
   return (
     <>
-      <div className={`min-h-screen text-slate-800 dark:text-slate-200 flex flex-col transition-colors ${darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'}`}>
+      <div className={`min-h-screen text-[#821F0C] dark:text-[#FEFEFE] flex flex-col transition-colors ${darkMode ? 'bg-[#1a0a05] text-[#FEFEFE]' : 'bg-[#F6F6F6] text-[#821F0C]'}`}>
         
         {/* ── TOP NAVIGATION BAR ── */}
         {!isLoginPage && (
-          <header className="sticky top-0 bg-slate-900 border-b border-slate-800 text-white h-16 z-40 flex items-center justify-center px-4 shadow-md">
+          <header className="sticky top-0 bg-[#460C04] border-b border-[#821F0C] text-[#FEFEFE] h-16 z-40 flex items-center justify-center px-4 shadow-md">
             <div className="w-full max-w-7xl flex items-center justify-between">
               
               <div className="flex items-center gap-3">
                 {page === "dashboard" ? (
                   <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="p-1.5 rounded-lg border border-slate-800 bg-slate-950/40 hover:bg-slate-800/40 cursor-pointer transition text-slate-200"
+                    className="p-1.5 rounded-lg border border-[#821F0C] bg-[#460C04]/40 hover:bg-[#821F0C]/40 cursor-pointer transition text-[#FEFEFE]"
                     aria-label="Toggle Side Deck"
                   >
                     <Sliders size={18} />
@@ -1009,7 +1009,7 @@ export default function App() {
                 ) : (
                   <button
                     onClick={() => setPage("dashboard")}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-950/40 hover:bg-slate-800/40 cursor-pointer text-xs font-bold transition text-slate-200"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#821F0C] bg-[#460C04]/40 hover:bg-[#821F0C]/40 cursor-pointer text-xs font-bold transition text-[#F6F6F6]"
                   >
                     <ArrowLeft size={13} /> Back
                   </button>
@@ -1027,31 +1027,31 @@ export default function App() {
                   <div className="relative">
                     <button
                       onClick={() => setNotifOpen(!notifOpen)}
-                      className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-slate-800 hover:bg-white/10 cursor-pointer relative transition"
+                      className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#FEFEFE]/5 border border-[#821F0C] hover:bg-[#FEFEFE]/10 cursor-pointer relative transition"
                       title={`${pendingCount} pending reviews`}
                     >
-                      <Bell size={15} className="text-slate-200" />
+                      <Bell size={15} className="text-[#FEFEFE]" />
                       {pendingCount > 0 && (
-                        <span className="absolute -top-1 right-[-2px] bg-red-550 bg-red-600 border border-slate-900 text-white font-extrabold text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center p-0.5">
+                        <span className="absolute -top-1 right-[-2px] bg-[#A1220B] border border-[#460C04] text-[#FEFEFE] font-extrabold text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center p-0.5">
                           {pendingCount}
                         </span>
                       )}
                     </button>
 
                     {notifOpen && (
-                      <div className="absolute right-0 top-11 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl p-4 w-72 text-slate-800 dark:text-slate-100 z-50 animate-fade-in-up">
-                        <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 mb-2">
+                      <div className="absolute right-0 top-11 bg-[#FEFEFE] dark:bg-[#460C04] border border-[#A4A4A9]/30 dark:border-[#821F0C] rounded-xl shadow-2xl p-4 w-72 text-[#821F0C] dark:text-[#FEFEFE] z-50 animate-fade-in-up">
+                        <div className="flex items-center justify-between pb-2 border-b border-[#F6F6F6] dark:border-[#821F0C] mb-2">
                           <span className="font-extrabold text-xs">Review Folder Alerts</span>
-                          {pendingCount > 0 && <span className="bg-amber-100 text-amber-800 text-[9px] px-1.5 rounded">Action required</span>}
+                          {pendingCount > 0 && <span className="bg-[#FF5206]/15 text-[#FF5206] text-[9px] px-1.5 rounded">Action required</span>}
                         </div>
                         <div className="max-h-[220px] overflow-y-auto space-y-2">
                           {reports.filter(r => r.status === "pending" && (user.role === "district_coordinator" ? r.district === user.district : true)).length === 0 ? (
-                            <p className="text-xs text-slate-400 py-4 text-center m-0">No active pending reviewed files found.</p>
+                            <p className="text-xs text-[#A4A4A9] py-4 text-center m-0">No active pending reviewed files found.</p>
                           ) : (
                             reports.filter(r => r.status === "pending" && (user.role === "district_coordinator" ? r.district === user.district : true)).map(r => (
-                              <div key={r.id} onClick={() => { setPage("reports"); setNotifOpen(false); }} className="p-2 bg-slate-50 dark:bg-slate-950 rounded border border-slate-100 dark:border-slate-850 hover:border-slate-300 cursor-pointer transition text-left text-[11.5px] font-semibold space-y-0.5">
-                                <div className="text-slate-900 dark:text-slate-50 truncate">{r.school}</div>
-                                <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{r.district} · {r.submitted_at}</div>
+                              <div key={r.id} onClick={() => { setPage("reports"); setNotifOpen(false); }} className="p-2 bg-[#F6F6F6] dark:bg-[#1a0a05] rounded border border-[#F6F6F6] dark:border-[#821F0C] hover:border-[#FF5206]/25 cursor-pointer transition text-left text-[11.5px] font-semibold space-y-0.5">
+                                <div className="text-[#460C04] dark:text-[#FEFEFE] truncate">{r.school}</div>
+                                <div className="text-[10px] text-[#A4A4A9] dark:text-[#A4A4A9] font-medium">{r.district} · {r.submitted_at}</div>
                               </div>
                             ))
                           )}
@@ -1064,8 +1064,8 @@ export default function App() {
                 {/* Direct Preference toggle cog */}
                 <button
                   onClick={() => setPage("settings")}
-                  className={`w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border hover:bg-white/10 cursor-pointer transition ${
-                    page === 'settings' ? 'border-orange-500 bg-orange-600/10 text-orange-400' : 'border-slate-800 text-slate-200'
+                  className={`w-9 h-9 flex items-center justify-center rounded-lg bg-[#FEFEFE]/5 border hover:bg-[#FEFEFE]/10 cursor-pointer transition ${
+                    page === 'settings' ? 'border-[#FF5206] bg-[#FF5206]/10 text-[#FF5206]' : 'border-[#821F0C] text-[#FEFEFE]'
                   }`}
                   title="Configure System theme and preferences"
                 >
@@ -1073,23 +1073,24 @@ export default function App() {
                 </button>
 
                 {/* Quick login pill */}
-                {user ? (
+                {user && (
                   <div className="flex items-center gap-2">
-                    <span className="hidden sm:inline-block px-3 py-1 bg-white/5 border border-slate-800 font-bold text-xs rounded-full">
-                      <Users size={12} className="inline mr-1 text-slate-300" /> {user.name}
+                    <span className="hidden sm:inline-block px-3 py-1 bg-[#FEFEFE]/5 border border-[#821F0C] font-bold text-xs rounded-full">
+                      <Users size={12} className="inline mr-1 text-[#FEFEFE]" /> {user.name}
                     </span>
                     <button
                       onClick={() => { setUser(null); setPage("dashboard"); showToast("Signed Out of ETT Malawi."); }}
-                      className="px-3 py-1.5 rounded-lg bg-red-650 hover:bg-red-700 bg-red-600 text-white font-bold text-xs cursor-pointer border-none transition"
+                      className="px-3 py-1.5 rounded-lg bg-[#A1220B] hover:bg-[#821F0C] text-[#FEFEFE] font-bold text-xs cursor-pointer border-none transition"
                       title="Deauthorize session credentials"
                     >
                       Sign Out
                     </button>
                   </div>
-                ) : (
+                )}
+                {!user && (
                   <button
                     onClick={() => setPage("login")}
-                    className="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs cursor-pointer rounded-lg border-none transition"
+                    className="px-3 py-1.5 bg-[#FF5206] hover:bg-[#A1220B] text-[#FEFEFE] font-black text-xs cursor-pointer rounded-lg border-none transition"
                   >
                     Staff Gate
                   </button>
@@ -1112,22 +1113,22 @@ export default function App() {
                   animate={{ opacity: 0.5 }}
                   exit={{ opacity: 0 }}
                   onClick={() => setSidebarOpen(false)}
-                  className="fixed inset-0 bg-black z-30 md:hidden"
+                  className="fixed inset-0 bg-[#460C04]/60 z-30 md:hidden"
                 />
                 <motion.aside
                   initial={{ x: -280 }}
                   animate={{ x: 0 }}
                   exit={{ x: -280 }}
                   transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-                  className="sidebar-white-custom fixed top-0 bottom-0 left-0 w-64 bg-white z-40 p-5 flex flex-col justify-between overflow-y-auto shadow-2xl border-r border-slate-200"
+                  className="sidebar-dark-custom fixed top-0 bottom-0 left-0 w-64 bg-[#460C04] z-40 p-5 flex flex-col justify-between overflow-y-auto shadow-2xl border-r border-[#821F0C]"
                 >
                   <div className="space-y-6">
-                    <div className="flex justify-between items-center pb-4 border-b border-slate-100">
+                    <div className="flex justify-between items-center pb-4 border-b sidebar-border">
                       <div className="flex items-center gap-2">
                         <AfricaLogo size={28} />
-                        <span className="font-extrabold text-base">ETT Portal Menu</span>
+                        <span className="font-extrabold text-[#FEFEFE] text-base">ETT Portal Menu</span>
                       </div>
-                      <button onClick={() => setSidebarOpen(false)} className="text-slate-600 hover:text-slate-900 cursor-pointer">
+                      <button onClick={() => setSidebarOpen(false)} className="text-[#A4A4A9] hover:text-[#FEFEFE] cursor-pointer">
                         <X size={18} />
                       </button>
                     </div>
@@ -1135,7 +1136,7 @@ export default function App() {
                     <div className="space-y-4 text-xs font-semibold">
                       {activeNavGroups.map(group => (
                         <div key={group.title} className="space-y-1.5">
-                          <div className="text-[10px] text-muted-custom tracking-wider uppercase font-bold px-2">{group.title}</div>
+                          <div className="text-[10px] text-group-title tracking-wider uppercase font-bold px-2">{group.title}</div>
                           {group.items.map(item => {
                             const Icon = item.icon;
                             const isActive = page === item.id;
@@ -1144,7 +1145,7 @@ export default function App() {
                                 key={item.id}
                                 onClick={() => { setPage(item.id); setSidebarOpen(false); }}
                                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg cursor-pointer transition ${
-                                  isActive ? 'nav-item-active-mobile' : 'nav-item-inactive'
+                                  isActive ? 'nav-item-active' : 'nav-item-inactive'
                                 }`}
                               >
                                 <Icon size={14} />
@@ -1157,10 +1158,10 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 space-y-2 text-xs">
-                    <div className="text-muted-custom block text-[10px] uppercase font-bold">Hotlines alignment</div>
-                    <div className="font-bold text-slate-800">Child Helpline: 116</div>
-                    <div className="font-bold text-slate-800">Police: 997</div>
+                  <div className="pt-4 border-t sidebar-border space-y-2 text-xs">
+                    <div className="text-group-title block text-[10px] uppercase font-bold">Hotlines alignment</div>
+                    <div className="font-bold text-[#F6F6F6]">Child Helpline: 116</div>
+                    <div className="font-bold text-[#F6F6F6]">Police: 997</div>
                   </div>
                 </motion.aside>
               </>
@@ -1169,12 +1170,12 @@ export default function App() {
 
           {/* Desktop permanent side navigation deck */}
           {!isLoginPage && (
-            <aside className="sidebar-white-custom hidden md:flex w-64 border-r border-slate-200 shrink-0 p-5 flex-col justify-between overflow-y-auto bg-white">
+            <aside className="sidebar-dark-custom hidden md:flex w-64 border-r border-[#821F0C] shrink-0 p-5 flex-col justify-between overflow-y-auto bg-[#460C04]">
               <div className="space-y-5">
                 <div className="space-y-4 text-xs font-semibold">
                   {activeNavGroups.map(group => (
                     <div key={group.title} className="space-y-1">
-                      <div className="text-[9.5px] text-muted-custom font-extrabold uppercase tracking-widest px-2 mb-2 select-none">
+                      <div className="text-[9.5px] text-group-title font-extrabold uppercase tracking-widest px-2 mb-2 select-none">
                         {group.title}
                       </div>
                       {group.items.map(item => {
@@ -1198,10 +1199,10 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 space-y-1.5 text-xs text-muted-custom leading-normal">
+              <div className="pt-4 border-t sidebar-border space-y-1.5 text-xs text-group-title leading-normal">
                 <div className="text-[10px] font-extrabold uppercase tracking-wider">Helplines alignment</div>
-                <div>Child Helpline: <span className="font-extrabold text-slate-800 dark:text-slate-800">116</span></div>
-                <div>VSU Police Desk: <span className="font-extrabold text-slate-800 dark:text-slate-800">997</span></div>
+                <div>Child Helpline: <span className="font-extrabold text-[#F6F6F6]">116</span></div>
+                <div>VSU Police Desk: <span className="font-extrabold text-[#F6F6F6]">997</span></div>
               </div>
             </aside>
           )}
@@ -1214,20 +1215,20 @@ export default function App() {
 
             {/* Standard aligned footer */}
             {!isLoginPage && (
-              <footer className="w-full max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800/80 mt-12 pt-6 pb-6 text-center text-xs text-slate-400 space-y-4">
+               <footer className="w-full max-w-7xl mx-auto border-t border-[#A4A4A9]/30 dark:border-[#821F0C]/80 mt-12 pt-6 pb-6 text-center text-xs text-[#A4A4A9] space-y-4">
                 <div className="flex items-center justify-center gap-2">
                   <AfricaLogo size={20} />
-                  <span className="font-extrabold text-slate-800 dark:text-slate-100">Ujamaa Pamodzi Africa</span>
+                  <span className="font-extrabold text-[#821F0C] dark:text-[#FEFEFE]">Ujamaa Pamodzi Africa</span>
                 </div>
-                <p className="m-0 leading-relaxed max-w-xl mx-auto">
+                <p className="m-0 leading-relaxed max-w-xl mx-auto text-[#A4A4A9]">
                   Country Wide ScaleUp Program adapted to prevent GBV, support disclosures, and enforce child protections.
                 </p>
-                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-slate-500">
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-[#A4A4A9]">
                   <span>Child Helpline: <b>116</b></span>
                   <span>VSU Police Desk: <b>997</b></span>
                   <span>Other Helpline: <b>0984 110 288</b></span>
                 </div>
-                <div className="text-[10px] text-slate-400 mt-2 font-medium">
+                <div className="text-[10px] text-[#A4A4A9] mt-2 font-medium">
                   © 2026 Ujamaa Africa Protection. All rights reserved. Registered Malawi NGOs Association network.
                 </div>
               </footer>

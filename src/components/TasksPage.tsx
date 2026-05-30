@@ -17,14 +17,10 @@ export interface TaskItem {
   status: 'todo' | 'progress' | 'completed';
 }
 
-interface TasksPageProps {
-  user: User | null;
-}
-
 const PRIORITY_CFG = {
-  high: { label: 'High Priority', color: '#dc2626', bg: '#fee2e2' },
-  medium: { label: 'Medium', color: '#d97706', bg: '#fef3c7' },
-  low: { label: 'Standard', color: '#4b5563', bg: '#f3f4f6' }
+  high: { label: 'High Priority', color: '#A1220B', bg: 'rgba(161, 34, 11, 0.1)' },
+  medium: { label: 'Medium', color: '#FF5206', bg: 'rgba(255, 82, 6, 0.1)' },
+  low: { label: 'Standard', color: '#821F0C', bg: 'rgba(130, 31, 12, 0.1)' }
 };
 
 const DEFAULT_TASKS: TaskItem[] = [
@@ -121,7 +117,7 @@ const DEFAULT_TASKS: TaskItem[] = [
   }
 ];
 
-export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
+export const TasksPage: React.FC<{ user: User | null }> = ({ user }) => {
   const [tasks, setTasks] = useState<TaskItem[]>(() => {
     const saved = safeStorage.getItem('ett_planning_tasks');
     return saved ? JSON.parse(saved) : DEFAULT_TASKS;
@@ -223,13 +219,13 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
     <div className="w-full max-w-7xl mx-auto px-4 py-6">
       
       {/* PAGE HEADER */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800/65 mb-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#A4A4A9]/25 dark:border-[#821F0C]/65 mb-6">
         <div>
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e85d04] select-none">PORTAL ACTIONS</span>
-          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight font-sans">
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FF5206] select-none">PORTAL ACTIONS</span>
+          <h1 className="text-2xl font-extrabold text-[#460C04] dark:text-[#FEFEFE] tracking-tight font-sans">
             Operations Tasks
           </h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-xl">
+          <p className="text-xs text-[#821F0C] dark:text-[#A4A4A9] mt-1 max-w-xl">
             Register checkpoints, cross-examine database entries, schedule school reviews, and delegate task sheets.
           </p>
         </div>
@@ -241,27 +237,27 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
       </div>
 
       {/* FILTER CONTROLS BAR WITH INTUITIVE INPUTS */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 bg-slate-50/50 dark:bg-slate-900/40 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 mb-6 font-sans">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 bg-[#F6F6F6] dark:bg-[#1a0a05] p-3.5 rounded-2xl border border-[#A4A4A9]/25 dark:border-[#821F0C] mb-6 font-sans">
         
         {/* Search bar */}
         <div className="md:col-span-2 relative flex items-center">
-          <Search size={14} className="absolute left-3 text-slate-400" />
+          <Search size={14} className="absolute left-3 text-[#A4A4A9]" />
           <input
             type="text"
             placeholder="Search tasks title, context summary..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:border-orange-500 focus:ring-1 focus:ring-orange-500/30 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500"
+            className="w-full pl-9 pr-4 py-2 bg-[#FEFEFE] dark:bg-[#1a0a05] text-[#821F0C] dark:text-[#FEFEFE] border border-[#A4A4A9]/30 dark:border-[#821F0C]/80 rounded-xl text-xs focus:border-[#FF5206] focus:ring-1 focus:ring-[#FF5206]/30 outline-none transition-all placeholder-[#A4A4A9] dark:placeholder-[#A4A4A9]/50"
           />
         </div>
 
         {/* Assigned role filter */}
-        <div className="relative flex items-center bg-white dark:bg-slate-950 p-1 px-3 border border-slate-200 dark:border-slate-800 rounded-xl">
-          <span className="text-[10px] text-slate-400 dark:text-slate-500 font-bold mr-1 whitespace-nowrap">Assigned to:</span>
+        <div className="relative flex items-center bg-[#FEFEFE] dark:bg-[#1a0a05] p-1 px-3 border border-[#A4A4A9]/30 dark:border-[#821F0C]/80 rounded-xl">
+          <span className="text-[10px] text-[#A4A4A9] font-bold mr-1 whitespace-nowrap">Assigned to:</span>
           <select
             value={roleFilter}
             onChange={e => setRoleFilter(e.target.value)}
-            className="w-full bg-transparent text-xs font-bold text-slate-700 dark:text-slate-300 border-none outline-none cursor-pointer py-1"
+            className="w-full bg-transparent text-xs font-bold text-[#821F0C] dark:text-[#A4A4A9] border-none outline-none cursor-pointer py-1"
           >
             <option value="all">Everyone's Log</option>
             <option value="admin">Admin Staff Tasks</option>
@@ -271,12 +267,12 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
         </div>
 
         {/* Priority filter */}
-        <div className="relative flex items-center bg-white dark:bg-slate-950 p-1 px-3 border border-slate-200 dark:border-slate-800 rounded-xl">
-          <span className="text-[10px] text-slate-400 dark:text-slate-500 font-bold mr-1 whitespace-nowrap">Priority:</span>
+        <div className="relative flex items-center bg-[#FEFEFE] dark:bg-[#1a0a05] p-1 px-3 border border-[#A4A4A9]/30 dark:border-[#821F0C]/80 rounded-xl">
+          <span className="text-[10px] text-[#A4A4A9] font-bold mr-1 whitespace-nowrap">Priority:</span>
           <select
             value={priorityFilter}
             onChange={e => setPriorityFilter(e.target.value)}
-            className="w-full bg-transparent text-xs font-bold text-slate-700 dark:text-slate-300 border-none outline-none cursor-pointer py-1"
+            className="w-full bg-transparent text-xs font-bold text-[#821F0C] dark:text-[#A4A4A9] border-none outline-none cursor-pointer py-1"
           >
             <option value="all">All Priorities</option>
             <option value="high">High Priority</option>
@@ -291,20 +287,20 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
         
         {/* COLUMN 1: TO DO */}
-        <div className="flex flex-col h-full bg-slate-50/50 dark:bg-slate-950/20 rounded-2xl p-4 border border-slate-200/50 dark:border-slate-900/50">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-900 mb-4 font-sans">
+        <div className="flex flex-col h-full bg-[#F6F6F6] dark:bg-[#1a0a05]/20 rounded-2xl p-4 border border-[#A4A4A9]/20 dark:border-[#821F0C]/50">
+          <div className="flex items-center justify-between pb-3 border-b border-[#A4A4A9]/25 dark:border-[#821F0C] mb-4 font-sans">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-slate-400" />
-              <h3 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">Planned Backlog</h3>
+              <div className="w-2.5 h-2.5 rounded-full bg-[#A4A4A9]" />
+              <h3 className="text-sm font-extrabold text-[#460C04] dark:text-[#FEFEFE] tracking-tight">Planned Backlog</h3>
             </div>
-            <span className="font-mono text-xs font-bold bg-slate-100 dark:bg-slate-900 text-slate-500 px-2 py-0.5 rounded-md">
+            <span className="font-mono text-xs font-bold bg-[#F6F6F6] dark:bg-[#460C04] text-[#A4A4A9] px-2 py-0.5 rounded-md">
               {todoTasks.length}
             </span>
           </div>
 
           <div className="space-y-3 min-h-[420px] overflow-y-auto">
             {todoTasks.length === 0 ? (
-              <div className="py-12 text-center text-slate-400 dark:text-slate-600">
+              <div className="py-12 text-center text-[#A4A4A9]">
                 <p className="text-xs font-semibold">No planned items</p>
                 <p className="text-[10.5px] mt-1 px-4">Create or filter differently to show operations backlogs.</p>
               </div>
@@ -315,20 +311,20 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
         </div>
 
         {/* COLUMN 2: IN PROGRESS */}
-        <div className="flex flex-col h-full bg-slate-50/50 dark:bg-slate-950/20 rounded-2xl p-4 border border-slate-200/50 dark:border-slate-900/50">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-900 mb-4 font-sans">
+        <div className="flex flex-col h-full bg-[#F6F6F6] dark:bg-[#1a0a05]/20 rounded-2xl p-4 border border-[#A4A4A9]/20 dark:border-[#821F0C]/50">
+          <div className="flex items-center justify-between pb-3 border-b border-[#A4A4A9]/25 dark:border-[#821F0C] mb-4 font-sans">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-              <h3 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">Active Operations</h3>
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FF5206] animate-pulse" />
+              <h3 className="text-sm font-extrabold text-[#460C04] dark:text-[#FEFEFE] tracking-tight">Active Operations</h3>
             </div>
-            <span className="font-mono text-xs font-bold bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-450 px-2 py-0.5 rounded-md">
+            <span className="font-mono text-xs font-bold bg-[#FF5206]/10 text-[#FF5206] px-2 py-0.5 rounded-md">
               {progressTasks.length}
             </span>
           </div>
 
           <div className="space-y-3 min-h-[420px] overflow-y-auto">
             {progressTasks.length === 0 ? (
-              <div className="py-12 text-center text-slate-400 dark:text-slate-600">
+              <div className="py-12 text-center text-[#A4A4A9]">
                 <p className="text-xs font-semibold">No active tasks</p>
                 <p className="text-[10.5px] mt-1 px-4">Move a backlog task right using controls to begin operating.</p>
               </div>
@@ -339,20 +335,20 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
         </div>
 
         {/* COLUMN 3: COMPLETED */}
-        <div className="flex flex-col h-full bg-slate-50/50 dark:bg-slate-950/20 rounded-2xl p-4 border border-slate-200/50 dark:border-slate-900/50">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-900 mb-4 font-sans">
+        <div className="flex flex-col h-full bg-[#F6F6F6] dark:bg-[#1a0a05]/20 rounded-2xl p-4 border border-[#A4A4A9]/20 dark:border-[#821F0C]/50">
+          <div className="flex items-center justify-between pb-3 border-b border-[#A4A4A9]/25 dark:border-[#821F0C] mb-4 font-sans">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <h3 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">Certified Completed</h3>
+              <div className="w-2.5 h-2.5 rounded-full bg-[#A1220B]" />
+              <h3 className="text-sm font-extrabold text-[#460C04] dark:text-[#FEFEFE] tracking-tight">Certified Completed</h3>
             </div>
-            <span className="font-mono text-xs font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 px-2 py-0.5 rounded-md">
+            <span className="font-mono text-xs font-bold bg-[#A1220B]/10 text-[#A1220B] px-2 py-0.5 rounded-md">
               {completedTasks.length}
             </span>
           </div>
 
           <div className="space-y-3 min-h-[420px] overflow-y-auto">
             {completedTasks.length === 0 ? (
-              <div className="py-12 text-center text-slate-400 dark:text-slate-600">
+              <div className="py-12 text-center text-[#A4A4A9]">
                 <p className="text-xs font-semibold">No finished entries</p>
                 <p className="text-[10.5px] mt-1 px-4">Log accomplishments when database or visits are resolved.</p>
               </div>
@@ -371,7 +367,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
           onClose={() => setShowAddModal(false)}
           width={480}
         >
-          <div className="space-y-4">
+          <div className="space-y-4 text-xs text-[#821F0C] dark:text-[#A4A4A9]">
             <FInput
               label="Task Short Description"
               placeholder="e.g., Audit Mbayani primary attendance data gaps"
@@ -436,7 +432,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
               onChange={e => setNewTask(p => ({ ...p, category: e.target.value }))}
             />
 
-            <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-[#A4A4A9]/25 dark:border-[#821F0C]">
               <Btn variant="secondary" size="sm" onClick={() => setShowAddModal(false)}>
                 Cancel
               </Btn>
@@ -457,18 +453,18 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
     return (
       <Card
         key={t.id}
-        className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition duration-150 flex flex-col justify-between"
+        className="p-4 bg-[#FEFEFE] dark:bg-[#460C04] border border-[#A4A4A9]/25 dark:border-[#821F0C] hover:border-[#FF5206]/40 dark:hover:border-[#FF5206]/40 transition duration-150 flex flex-col justify-between"
       >
         <div>
           {/* Header row: category and actions */}
           <div className="flex items-center justify-between gap-1.5 mb-2.5">
-            <span className="text-[9px] font-extrabold uppercase bg-slate-50 dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/60 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-mono tracking-wider">
+            <span className="text-[9px] font-extrabold uppercase bg-[#F6F6F6] dark:bg-[#1a0a05] px-2 py-0.5 rounded border border-[#A4A4A9]/25 dark:border-[#821F0C]/40 text-[#A4A4A9] font-mono tracking-wider">
               {t.category}
             </span>
-            <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500">
+            <div className="flex items-center gap-1.5 text-[#A4A4A9]">
               <button
                 onClick={() => handleDeleteTask(t.id)}
-                className="text-slate-400 hover:text-red-500 dark:hover:text-red-400 p-1 rounded hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border-none bg-transparent"
+                className="text-[#A4A4A9] hover:text-[#A1220B] p-1 rounded hover:bg-[#F6F6F6] dark:hover:bg-[#821F0C] cursor-pointer border-none bg-transparent"
                 title="Remove task sheet"
               >
                 <Trash2 size={12} />
@@ -477,35 +473,35 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
           </div>
 
           {/* Title with priority marker */}
-          <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 line-clamp-2 leading-tight mb-1.5">
+          <h4 className="text-xs font-bold text-[#460C04] dark:text-[#FEFEFE] line-clamp-2 leading-tight mb-1.5 font-sans">
             {t.title}
           </h4>
 
           {/* Description */}
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mb-3">
+          <p className="text-[11px] text-[#821F0C] dark:text-[#A4A4A9] leading-snug mb-3">
             {t.description}
           </p>
 
           {/* District badge & role assignment */}
-          <div className="flex flex-wrap items-center gap-1.5 pb-3 border-b border-slate-100 dark:border-slate-800/80 mb-3 text-[10px] font-semibold text-slate-500 dark:text-slate-400">
+          <div className="flex flex-wrap items-center gap-1.5 pb-3 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40 mb-3 text-[10px] font-semibold text-[#A4A4A9]">
             <div className="flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: pc.color }} />
-              <span className="text-[9px] font-mono" style={{ color: pc.color }}>{pc.label}</span>
+              <span className="text-[9px] font-mono font-extrabold" style={{ color: pc.color }}>{pc.label}</span>
             </div>
             <span>•</span>
-            <span className="bg-[#fff1e6] dark:bg-amber-950/15 text-[#e85d04] px-1.5 rounded text-[9px] font-mono leading-tight">{getRoleLabel(t.assignedRole)}</span>
+            <span className="bg-[#FF5206]/10 dark:bg-[#FF5206]/25 text-[#FF5206] px-1.5 rounded text-[9px] font-mono leading-tight">{getRoleLabel(t.assignedRole)}</span>
             {t.district !== 'National' && (
               <>
                 <span>•</span>
-                <span className="text-slate-500 font-mono text-[9px]">{t.district}</span>
+                <span className="text-[#A4A4A9] font-mono text-[9px]">{t.district}</span>
               </>
             )}
           </div>
         </div>
 
         {/* BOTTOM STEP CONTROLLERS */}
-        <div className="flex items-center justify-between text-[10.5px] text-slate-400 font-bold">
-          <div className="flex items-center gap-1 font-mono text-slate-400 dark:text-slate-500 text-[10px]">
+        <div className="flex items-center justify-between text-[10.5px] text-[#A4A4A9] font-bold">
+          <div className="flex items-center gap-1 font-mono text-[#A4A4A9] text-[10px]">
             <Calendar size={11} />
             <span>Due: {t.dueDate}</span>
           </div>
@@ -514,7 +510,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
             {t.status !== 'todo' && (
               <button
                 onClick={() => handleMoveStatus(t.id, t.status === 'completed' ? 'progress' : 'todo')}
-                className="p-1 px-1.5 rounded border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 cursor-pointer text-slate-500 dark:text-slate-400 text-[10px] flex items-center bg-transparent transition"
+                className="p-1 px-1.5 rounded border border-[#A4A4A9]/35 dark:border-[#821F0C] hover:bg-[#F6F6F6] dark:hover:bg-[#1a0a05] cursor-pointer text-[#A4A4A9] text-[10px] flex items-center bg-transparent transition"
                 title="Shift back"
               >
                 <ChevronLeft size={12} /> Back
@@ -524,7 +520,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
             {t.status !== 'completed' && (
               <button
                 onClick={() => handleMoveStatus(t.id, t.status === 'todo' ? 'progress' : 'completed')}
-                className="p-1 px-1.5 rounded border border-[#e85d04]/20 hover:border-[#e85d04]/40 hover:bg-[#fff1e6]/10 text-[#e85d04] cursor-pointer text-[10px] flex items-center bg-transparent transition font-extrabold"
+                className="p-1 px-1.5 rounded border border-[#FF5206]/35 hover:border-[#FF5206] hover:bg-[#FF5206]/10 text-[#FF5206] cursor-pointer text-[10px] flex items-center bg-transparent transition font-extrabold"
                 title="Shift status forward"
               >
                 Next <ChevronRight size={12} />
@@ -532,7 +528,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({ user }) => {
             )}
 
             {t.status === 'completed' && (
-              <Badge text="Certified" color="#065f46" bg="#dcfce7" className="text-[9px] py-0 px-1 hover:none font-mono" />
+              <Badge text="Certified" color="#A1220B" bg="rgba(161, 34, 11, 0.1)" className="text-[9px] py-0 px-1 hover:none font-mono" />
             )}
           </div>
         </div>

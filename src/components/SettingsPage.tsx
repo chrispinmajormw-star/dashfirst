@@ -77,13 +77,13 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-4xl mx-auto space-y-6 animate-fade-in-up">
       <div>
         <Kicker text="Application Preferences" />
-        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-50 leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-[#460C04] dark:text-[#FEFEFE] leading-tight font-sans">
           System Settings
         </h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+        <p className="text-sm text-[#A4A4A9] mt-1">
           Customize display parameters, interface layout options, and review account capabilities.
         </p>
       </div>
@@ -92,35 +92,35 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
         {/* Main preferences column */}
         <div className="md:col-span-2 space-y-5">
           {/* Theme card */}
-          <Card className="p-6">
+          <Card className="p-6 bg-[#FEFEFE] border border-[#A4A4A9]/25">
             <div className="flex items-center gap-3 mb-4">
-              <span className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400">
+              <span className="p-2 rounded-xl bg-[#FF5206]/10 text-[#FF5206]">
                 <Sparkles size={20} />
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 m-0">
+                <h3 className="text-base font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">
                   Appearance Theme
                 </h3>
-                <p className="text-xs text-slate-400 dark:text-slate-500 m-0">
+                <p className="text-xs text-[#A4A4A9] m-0">
                   Set the background contrast mode of the ScaleUp Dashboard.
                 </p>
               </div>
             </div>
 
-            <hr className="border-slate-100 dark:border-slate-800 my-4" />
+            <hr className="border-[#A4A4A9]/20 dark:border-[#821F0C] my-4" />
 
-            <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-150 dark:border-slate-800">
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-[#F6F6F6] dark:bg-[#1a0a05] border border-[#A4A4A9]/25">
               <div className="flex items-center gap-3.5">
                 {darkMode ? (
-                  <Moon className="text-violet-400" size={18} />
+                  <Moon className="text-[#FF5206]" size={18} />
                 ) : (
-                  <Sun className="text-amber-500" size={18} />
+                  <Sun className="text-[#FF5206]" size={18} />
                 )}
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                  <div className="text-xs sm:text-sm font-bold text-[#460C04] dark:text-[#FEFEFE]">
                     Dark Slate Environment
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500">
+                  <div className="text-[10px] sm:text-xs text-[#A4A4A9]">
                     Saves energy, reduces eye fatigue in dimly lit classrooms.
                   </div>
                 </div>
@@ -130,8 +130,8 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               <button
                 onClick={toggleDarkMode}
                 id="theme-toggler-btn"
-                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-orange-500/30 ${
-                  darkMode ? 'bg-orange-500' : 'bg-slate-200 dark:bg-slate-700'
+                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-[#FF5206]/30 ${
+                  darkMode ? 'bg-[#FF5206]' : 'bg-[#A4A4A9]/40'
                 }`}
               >
                 <span
@@ -147,65 +147,65 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
                 onClick={() => { if (darkMode) setDarkMode(false); }}
                 className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 cursor-pointer transition-all ${
                   !darkMode
-                    ? 'border-orange-500 bg-orange-50/25 dark:bg-orange-900/5'
-                    : 'border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/30'
+                    ? 'border-[#FF5206] bg-[#FF5206]/5'
+                    : 'border-[#A4A4A9]/25 dark:border-[#821F0C] bg-[#F6F6F6]/50 dark:bg-[#1a0a05]/30'
                 }`}
               >
-                <Sun size={24} className={!darkMode ? 'text-orange-500' : 'text-slate-400'} />
-                <span className="text-xs font-bold mt-2 text-slate-700 dark:text-slate-300">Light Slate</span>
+                <Sun size={24} className={!darkMode ? 'text-[#FF5206]' : 'text-[#A4A4A9]'} />
+                <span className="text-xs font-bold mt-2 text-[#821F0C] dark:text-[#FEFEFE]">Light Slate</span>
               </div>
               <div
                 onClick={() => { if (!darkMode) setDarkMode(true); }}
                 className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 cursor-pointer transition-all ${
                   darkMode
-                    ? 'border-orange-500 bg-orange-50/25 dark:bg-orange-900/5'
-                    : 'border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/30'
+                    ? 'border-[#FF5206] bg-[#FF5206]/5'
+                    : 'border-[#A4A4A9]/25 dark:border-[#821F0C] bg-[#F6F6F6]/50 dark:bg-[#1a0a05]/30'
                 }`}
               >
-                <Moon size={24} className={darkMode ? 'text-violet-400' : 'text-slate-400'} />
-                <span className="text-xs font-bold mt-2 text-slate-700 dark:text-slate-300">Midnight Dark</span>
+                <Moon size={24} className={darkMode ? 'text-[#FF5206]' : 'text-[#A4A4A9]'} />
+                <span className="text-xs font-bold mt-2 text-[#821F0C] dark:text-[#FEFEFE]">Midnight Dark</span>
               </div>
             </div>
           </Card>
 
           {/* Operations & Alerts Card */}
-          <Card className="p-6">
+          <Card className="p-6 bg-[#FEFEFE] border border-[#A4A4A9]/25">
             <div className="flex items-center gap-3 mb-4">
-              <span className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400">
+              <span className="p-2 rounded-xl bg-[#FF5206]/10 text-[#FF5206]">
                 <Bell size={20} />
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 m-0">
+                <h3 className="text-base font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">
                   Operations & Calendar Alerts
                 </h3>
-                <p className="text-xs text-slate-400 dark:text-slate-500 m-0">
+                <p className="text-xs text-[#A4A4A9] m-0">
                   Set triggers for your scheduled school visits, events, and agenda layouts.
                 </p>
               </div>
             </div>
 
-            <hr className="border-slate-100 dark:border-slate-800 my-4" />
+            <hr className="border-[#A4A4A9]/20 dark:border-[#821F0C] my-4" />
 
             <div className="space-y-4">
               {/* Training Events Alert Toggle */}
-              <div className="flex items-center justify-between py-2 border-b border-slate-50 dark:border-slate-800/40">
+              <div className="flex items-center justify-between py-2 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40">
                 <div className="flex items-start gap-3">
-                  <span className="p-1.5 rounded-lg bg-orange-50/50 dark:bg-orange-950/20 text-orange-500 mt-0.5">
+                  <span className="p-1.5 rounded-lg bg-[#FF5206]/10 text-[#FF5206] mt-0.5">
                     <Calendar size={15} />
                   </span>
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                    <div className="text-xs sm:text-sm font-bold text-[#460C04] dark:text-[#FEFEFE]">
                       Training Events Alerts
                     </div>
-                    <div className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500">
+                    <div className="text-[10px] sm:text-xs text-[#A4A4A9]">
                       Get alert notifications for scheduled Trainer TOT and curriculum sessions.
                     </div>
                   </div>
                 </div>
                 <button
                   onClick={handleToggleTraining}
-                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-orange-500/30 ${
-                    notifyTraining ? 'bg-orange-500' : 'bg-slate-200 dark:bg-slate-700'
+                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-[#FF5206]/30 ${
+                    notifyTraining ? 'bg-[#FF5206]' : 'bg-[#A4A4A9]/40'
                   }`}
                 >
                   <span
@@ -217,24 +217,24 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               </div>
 
               {/* Weekly Meetings Alert Toggle */}
-              <div className="flex items-center justify-between py-2 border-b border-slate-50 dark:border-slate-800/40">
+              <div className="flex items-center justify-between py-2 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40">
                 <div className="flex items-start gap-3">
-                  <span className="p-1.5 rounded-lg bg-orange-50/50 dark:bg-orange-950/20 text-orange-500 mt-0.5">
+                  <span className="p-1.5 rounded-lg bg-[#FF5206]/10 text-[#FF5206] mt-0.5">
                     <Clock size={15} />
                   </span>
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                    <div className="text-xs sm:text-sm font-bold text-[#460C04] dark:text-[#FEFEFE]">
                       Meeting Alerts
                     </div>
-                    <div className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500">
+                    <div className="text-[10px] sm:text-xs text-[#A4A4A9]">
                       Receive early reminders for regional officer coordinate syncs.
                     </div>
                   </div>
                 </div>
                 <button
                   onClick={handleToggleMeetings}
-                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-orange-500/30 ${
-                    notifyMeetings ? 'bg-orange-500' : 'bg-slate-200 dark:bg-slate-700'
+                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-[#FF5206]/30 ${
+                    notifyMeetings ? 'bg-[#FF5206]' : 'bg-[#A4A4A9]/40'
                   }`}
                 >
                   <span
@@ -246,24 +246,24 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               </div>
 
               {/* Week Starts on Monday Toggle */}
-              <div className="flex items-center justify-between py-2 border-b border-slate-50 dark:border-slate-800/40">
+              <div className="flex items-center justify-between py-2 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40">
                 <div className="flex items-start gap-3">
-                  <span className="p-1.5 rounded-lg bg-orange-50/50 dark:bg-orange-950/20 text-orange-500 mt-0.5">
+                  <span className="p-1.5 rounded-lg bg-[#FF5206]/10 text-[#FF5206] mt-0.5">
                     <Calendar size={15} />
                   </span>
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                    <div className="text-xs sm:text-sm font-bold text-[#460C04] dark:text-[#FEFEFE]">
                       Week starts on Monday
                     </div>
-                    <div className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500">
+                    <div className="text-[10px] sm:text-xs text-[#A4A4A9]">
                       Arrange the Operation Calendar layout with Monday as the first day.
                     </div>
                   </div>
                 </div>
                 <button
                   onClick={handleToggleWeekStart}
-                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-orange-500/30 ${
-                    weekStartMonday ? 'bg-orange-500' : 'bg-slate-200 dark:bg-slate-700'
+                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-[#FF5206]/30 ${
+                    weekStartMonday ? 'bg-[#FF5206]' : 'bg-[#A4A4A9]/40'
                   }`}
                 >
                   <span
@@ -275,24 +275,24 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               </div>
 
               {/* Task Reminders Toggle */}
-              <div className="flex items-center justify-between py-2">
+              <div className="flex items-center justify-between py-2 font-sans">
                 <div className="flex items-start gap-3">
-                  <span className="p-1.5 rounded-lg bg-orange-50/50 dark:bg-orange-950/20 text-orange-500 mt-0.5">
+                  <span className="p-1.5 rounded-lg bg-[#FF5206]/10 text-[#FF5206] mt-0.5">
                     <ListTodo size={15} />
                   </span>
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                    <div className="text-xs sm:text-sm font-bold text-[#460C04] dark:text-[#FEFEFE]">
                       Task Reminders
                     </div>
-                    <div className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500">
+                    <div className="text-[10px] sm:text-xs text-[#A4A4A9]">
                       Sync push or dashboard badges for pending operations list actions.
                     </div>
                   </div>
                 </div>
                 <button
                   onClick={handleToggleReminders}
-                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-orange-500/30 ${
-                    taskReminders ? 'bg-orange-500' : 'bg-slate-200 dark:bg-slate-700'
+                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-[#FF5206]/30 ${
+                    taskReminders ? 'bg-[#FF5206]' : 'bg-[#A4A4A9]/40'
                   }`}
                 >
                   <span
@@ -306,46 +306,46 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           </Card>
 
           {/* Diagnostics Card */}
-          <Card className="p-6">
+          <Card className="p-6 bg-[#FEFEFE] border border-[#A4A4A9]/25 font-sans">
             <div className="flex items-center gap-3 mb-3">
-              <span className="p-2 rounded-xl bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-400">
+              <span className="p-2 rounded-xl bg-[#FF5206]/10 text-[#FF5206]">
                 <Monitor size={20} />
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 m-0">
+                <h3 className="text-base font-bold text-[#460C04] dark:text-[#FEFEFE] m-0">
                   Platform Diagnostics
                 </h3>
-                <p className="text-xs text-slate-400 dark:text-slate-500 m-0">
+                <p className="text-xs text-[#A4A4A9] m-0">
                   Synchronous system settings and workspace local stats.
                 </p>
               </div>
             </div>
 
-            <hr className="border-slate-100 dark:border-slate-800 my-4" />
+            <hr className="border-[#A4A4A9]/20 dark:border-[#821F0C] my-4" />
 
-            <div className="space-y-3 text-xs">
-              <div className="flex justify-between py-1 border-b border-slate-50 dark:border-slate-800/40">
-                <span className="text-slate-400">Application Frame Type</span>
-                <span className="font-bold text-slate-700 dark:text-slate-300">React 19 + Vite Container</span>
+            <div className="space-y-3 text-xs text-[#821F0C] dark:text-[#A4A4A9]">
+              <div className="flex justify-between py-1 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40">
+                <span className="text-[#A4A4A9] font-medium">Application Frame Type</span>
+                <span className="font-bold text-[#821F0C] dark:text-[#FEFEFE]">React 19 + Vite Container</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-slate-50 dark:border-slate-800/40">
-                <span className="text-slate-400">Local Stored Cache</span>
-                <span className="font-bold text-slate-700 dark:text-slate-300">Active ({reportsCount} reports)</span>
+              <div className="flex justify-between py-1 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40">
+                <span className="text-[#A4A4A9] font-medium">Local Stored Cache</span>
+                <span className="font-bold text-[#821F0C] dark:text-[#FEFEFE]">Active ({reportsCount} reports)</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-slate-50 dark:border-slate-800/40">
-                <span className="text-slate-400">Service Environment</span>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400">● LIVE RUNNING</span>
+              <div className="flex justify-between py-1 border-b border-[#A4A4A9]/20 dark:border-[#821F0C]/40">
+                <span className="text-[#A4A4A9] font-medium">Service Environment</span>
+                <span className="font-bold text-[#FF5206] dark:text-[#FF5206]">● LIVE RUNNING</span>
               </div>
               <div className="flex justify-between py-1">
-                <span className="text-slate-400">Persistent Storage Engine</span>
-                <span className="font-bold text-slate-700 dark:text-slate-300">Local Storage Hook API</span>
+                <span className="text-[#A4A4A9] font-medium">Persistent Storage Engine</span>
+                <span className="font-bold text-[#821F0C] dark:text-[#FEFEFE]">Local Storage Hook API</span>
               </div>
             </div>
 
             <Btn
               variant="secondary"
               size="sm"
-              className="mt-5 w-full"
+              className="mt-5 w-full font-bold"
               onClick={() => {
                 safeStorage.clear();
                 showToast("♻️ Cached fields restored to factory defaults. Please refresh page.");
@@ -359,19 +359,19 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
         {/* Profile / Permission details block */}
         <div className="space-y-5">
           {/* User profile details */}
-          <Card className="p-6 text-center">
-            <h3 className="text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4">
+          <Card className="p-6 text-center bg-[#FEFEFE] border border-[#A4A4A9]/25 font-sans">
+            <h3 className="text-sm font-extrabold text-[#A4A4A9] uppercase tracking-wider mb-4">
               Session Profile
             </h3>
             {user ? (
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-orange-500 text-white font-black text-2xl flex items-center justify-center shadow-lg shadow-orange-500/10 mb-3">
+                <div className="w-16 h-16 rounded-full bg-[#FF5206] text-[#FEFEFE] font-black text-2xl flex items-center justify-center shadow-lg mb-3">
                   {user.avatar}
                 </div>
-                <div className="font-extrabold text-slate-900 dark:text-slate-100 text-base">
+                <div className="font-extrabold text-[#460C04] dark:text-[#FEFEFE] text-base">
                   {user.name}
                 </div>
-                <div className="text-xs text-slate-400 dark:text-slate-400 mb-3">{user.email}</div>
+                <div className="text-xs text-[#A4A4A9] mb-3">{user.email}</div>
                 {rc && (
                   <span
                     className="px-3 py-1 rounded-full text-xs font-bold"
@@ -381,20 +381,20 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
                   </span>
                 )}
                 {user.district && (
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-2 font-medium">
+                  <div className="text-xs text-[#A4A4A9] mt-2 font-semibold">
                     📍 Align: {user.district} Region
                   </div>
                 )}
               </div>
             ) : (
               <div className="flex flex-col items-center py-4">
-                <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center mb-3">
+                <div className="w-14 h-14 rounded-full bg-[#F6F6F6] dark:bg-[#1a0a05]/20 text-[#A4A4A9] flex items-center justify-center mb-3">
                   <UserIcon size={24} />
                 </div>
-                <div className="font-extrabold text-slate-700 dark:text-slate-300 text-sm">
+                <div className="font-extrabold text-[#460C04] dark:text-[#FEFEFE] text-sm">
                   Public Guest Access
                 </div>
-                <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                <p className="text-xs text-[#A4A4A9] mt-2 leading-relaxed">
                   Log in with credentials provided by your district lead as a Trainer or Officer.
                 </p>
               </div>
@@ -402,15 +402,15 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           </Card>
 
           {/* Quick instructions card */}
-          <Card className="p-5 bg-gradient-to-br from-orange-500/5 to-rose-500/5 border-orange-100 dark:border-orange-950/10 relative overflow-hidden">
-            <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 mb-2">
+          <Card className="p-5 bg-gradient-to-br bg-[#FF5206]/5 border-[#FF5206]/15 dark:border-[#821F0C]/10 relative overflow-hidden font-sans">
+            <div className="flex items-center gap-2 text-[#FF5206] mb-2 font-bold">
               <HelpCircle size={16} />
               <span className="text-xs font-extrabold uppercase tracking-wide">Safeguarding Contact</span>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+            <p className="text-xs text-[#821F0C] dark:text-[#A4A4A9] leading-relaxed m-0">
               Need assistance using the Digital ScaleUp program? Contact the system admin or report issues via email:
             </p>
-            <div className="text-xs font-bold text-orange-600 dark:text-orange-400 mt-2 hover:underline">
+            <div className="text-xs font-bold text-[#FF5206] mt-2 hover:underline">
               support.pamodzi@ujamaa-africa.org
             </div>
           </Card>
