@@ -234,4 +234,80 @@ body {
   color: #FFFFFF !important;
 }
 
+/* Sidebar overrides for white background, black text and icons with an orange theme */
+.sidebar-white-custom,
+.dark .sidebar-white-custom,
+.dark aside.sidebar-white-custom {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0c0a09 !important; /* black default */
+  border-right: 1px solid #e7e5e4 !important;
+}
+
+/* Headings, text, labels and helpers inside white sidebar */
+.sidebar-white-custom h1, .dark .sidebar-white-custom h1,
+.sidebar-white-custom h2, .dark .sidebar-white-custom h2,
+.sidebar-white-custom h3, .dark .sidebar-white-custom h3,
+.sidebar-white-custom h4, .dark .sidebar-white-custom h4,
+.sidebar-white-custom h5, .dark .sidebar-white-custom h5,
+.sidebar-white-custom h6, .dark .sidebar-white-custom h6,
+.sidebar-white-custom span:not(.font-extrabold\.text-orange-650):not(.bg-orange-650),
+.dark .sidebar-white-custom span:not(.font-extrabold\.text-orange-650):not(.bg-orange-650),
+.sidebar-white-custom div, .dark .sidebar-white-custom div,
+.sidebar-white-custom b, .dark .sidebar-white-custom b {
+  color: #0c0a09 !important;
+}
+
+/* Secondary muted or tracking text */
+.sidebar-white-custom .text-muted-custom, .dark .sidebar-white-custom .text-muted-custom,
+.sidebar-white-custom .text-[9.5px], .dark .sidebar-white-custom .text-[9.5px],
+.sidebar-white-custom .text-[10px], .dark .sidebar-white-custom .text-[10px],
+.sidebar-white-custom .text-slate-400, .dark .sidebar-white-custom .text-slate-400,
+.sidebar-white-custom .text-slate-500, .dark .sidebar-white-custom .text-slate-500,
+.sidebar-white-custom .text-white\/30, .dark .sidebar-white-custom .text-white\/30,
+.sidebar-white-custom .text-white\/40, .dark .sidebar-white-custom .text-white\/40 {
+  color: #57534e !important; /* stone-600 */
+}
+
+/* Inactive nav item links */
+.sidebar-white-custom .nav-item-inactive,
+.dark .sidebar-white-custom .nav-item-inactive {
+  color: #44403c !important; /* stone-700 */
+  background-color: transparent !important;
+}
+.sidebar-white-custom .nav-item-inactive:hover,
+.dark .sidebar-white-custom .nav-item-inactive:hover {
+  background-color: #f5f5f4 !important; /* stone-100 hover */
+  color: #0c0a09 !important;
+}
+
+/* Active navigation item in desktop sidebar (orange theme) */
+.sidebar-white-custom .nav-item-active,
+.dark .sidebar-white-custom .nav-item-active {
+  background-color: #ffedd5 !important; /* Soft orange tint */
+  color: #ea580c !important; /* Beautiful orange text */
+  font-weight: 700 !important;
+  border-left: 4px solid #f97316 !important; /* Orange left border indicator */
+}
+
+/* Active navigation item in mobile sidebar (orange theme) */
+.sidebar-white-custom .nav-item-active-mobile,
+.dark .sidebar-white-custom .nav-item-active-mobile {
+  background-color: #f97316 !important; /* Vibrant orange bg */
+  color: #ffffff !important; /* White text */
+  font-weight: 750 !important;
+}
+
+/* Border overrides inside the sidebar */
+.sidebar-white-custom .border-white\/5,
+.dark .sidebar-white-custom .border-white\/5,
+.sidebar-white-custom .border-slate-800,
+.dark .sidebar-white-custom .border-slate-800,
+.sidebar-white-custom .border-slate-100,
+.dark .sidebar-white-custom .border-slate-100,
+.sidebar-white-custom .border-slate-200,
+.dark .sidebar-white-custom .border-slate-200 {
+  border-color: #e7e5e4 !important; /* stone-200 boundary */
+}
+
 

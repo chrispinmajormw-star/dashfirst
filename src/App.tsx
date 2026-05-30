@@ -1119,15 +1119,15 @@ export default function App() {
                   animate={{ x: 0 }}
                   exit={{ x: -280 }}
                   transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-                  className="fixed top-0 bottom-0 left-0 w-64 bg-slate-950 text-slate-100 z-40 p-5 flex flex-col justify-between overflow-y-auto"
+                  className="sidebar-white-custom fixed top-0 bottom-0 left-0 w-64 bg-white z-40 p-5 flex flex-col justify-between overflow-y-auto shadow-2xl border-r border-slate-200"
                 >
                   <div className="space-y-6">
-                    <div className="flex justify-between items-center pb-4 border-b border-white/5">
+                    <div className="flex justify-between items-center pb-4 border-b border-slate-100">
                       <div className="flex items-center gap-2">
                         <AfricaLogo size={28} />
                         <span className="font-extrabold text-base">ETT Portal Menu</span>
                       </div>
-                      <button onClick={() => setSidebarOpen(false)} className="text-white hover:opacity-60 cursor-pointer">
+                      <button onClick={() => setSidebarOpen(false)} className="text-slate-600 hover:text-slate-900 cursor-pointer">
                         <X size={18} />
                       </button>
                     </div>
@@ -1135,7 +1135,7 @@ export default function App() {
                     <div className="space-y-4 text-xs font-semibold">
                       {activeNavGroups.map(group => (
                         <div key={group.title} className="space-y-1.5">
-                          <div className="text-[10px] text-white/30 tracking-wider uppercase font-bold px-2">{group.title}</div>
+                          <div className="text-[10px] text-muted-custom tracking-wider uppercase font-bold px-2">{group.title}</div>
                           {group.items.map(item => {
                             const Icon = item.icon;
                             const isActive = page === item.id;
@@ -1144,7 +1144,7 @@ export default function App() {
                                 key={item.id}
                                 onClick={() => { setPage(item.id); setSidebarOpen(false); }}
                                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg cursor-pointer transition ${
-                                  isActive ? 'bg-orange-600 text-white' : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                                  isActive ? 'nav-item-active-mobile' : 'nav-item-inactive'
                                 }`}
                               >
                                 <Icon size={14} />
@@ -1157,10 +1157,10 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/5 space-y-2 text-xs">
-                    <div className="text-white/40 block text-[10px] uppercase font-bold">Hotlines alignment</div>
-                    <div className="font-semibold text-white/80">Child Helpline: 116</div>
-                    <div className="font-semibold text-white/80">Police: 997</div>
+                  <div className="pt-4 border-t border-slate-100 space-y-2 text-xs">
+                    <div className="text-muted-custom block text-[10px] uppercase font-bold">Hotlines alignment</div>
+                    <div className="font-bold text-slate-800">Child Helpline: 116</div>
+                    <div className="font-bold text-slate-800">Police: 997</div>
                   </div>
                 </motion.aside>
               </>
@@ -1169,12 +1169,12 @@ export default function App() {
 
           {/* Desktop permanent side navigation deck */}
           {!isLoginPage && (
-            <aside className="hidden md:flex w-64 border-r border-slate-200 dark:border-slate-800 shrink-0 p-5 flex-col justify-between overflow-y-auto bg-white/40 dark:bg-slate-950/40">
+            <aside className="sidebar-white-custom hidden md:flex w-64 border-r border-slate-200 shrink-0 p-5 flex-col justify-between overflow-y-auto bg-white">
               <div className="space-y-5">
                 <div className="space-y-4 text-xs font-semibold">
                   {activeNavGroups.map(group => (
                     <div key={group.title} className="space-y-1">
-                      <div className="text-[9.5px] text-slate-500 dark:text-slate-400 font-extrabold uppercase tracking-widest px-2 mb-2 select-none">
+                      <div className="text-[9.5px] text-muted-custom font-extrabold uppercase tracking-widest px-2 mb-2 select-none">
                         {group.title}
                       </div>
                       {group.items.map(item => {
@@ -1185,9 +1185,7 @@ export default function App() {
                             key={item.id}
                             onClick={() => setPage(item.id)}
                             className={`flex items-center gap-2.5 px-3 py-2 rounded-xl cursor-pointer transition ${
-                              isActive
-                                ? 'bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold border-l-2 border-orange-500 pl-2 rounded-l-none'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100/50 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
+                              isActive ? 'nav-item-active' : 'nav-item-inactive'
                             }`}
                           >
                             <Icon size={13.5} />
@@ -1200,10 +1198,10 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1.5 text-xs text-slate-500 dark:text-slate-400 leading-normal">
-                <div className="text-[10px] font-extrabold uppercase text-slate-400 dark:text-slate-500 tracking-wider">Helplines alignment</div>
-                <div>Child Helpline: <b>116</b></div>
-                <div>VSU Police Desk: <b>997</b></div>
+              <div className="pt-4 border-t border-slate-100 space-y-1.5 text-xs text-muted-custom leading-normal">
+                <div className="text-[10px] font-extrabold uppercase tracking-wider">Helplines alignment</div>
+                <div>Child Helpline: <span className="font-extrabold text-slate-800 dark:text-slate-800">116</span></div>
+                <div>VSU Police Desk: <span className="font-extrabold text-slate-800 dark:text-slate-800">997</span></div>
               </div>
             </aside>
           )}
