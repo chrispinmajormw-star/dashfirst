@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "DM Sans", system-ui, sans-serif;
+}
+
+/* Global transitions and layout adjustments */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Dark mode custom scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Leaflet dark theme styling with Oxford Blue, Auburn Purple & Golden Orange */
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: #14213D !important; /* Oxford Blue */
+  color: #FFFFFF !important; /* Pure White */
+  border: 1px solid #3F2A3B !important; /* Auburn Purple border */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.85), 0 4px 6px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .leaflet-container a.leaflet-popup-close-button {
+  color: #cbd5e1 !important;
+}
+
+.dark .leaflet-container a.leaflet-popup-close-button:hover {
+  color: #FCA311 !important;
+}
+
+.dark .leaflet-tooltip {
+  background: #14213D !important; /* Oxford Blue */
+  color: #FFFFFF !important; /* Pure White */
+  border: 1px solid #3F2A3B !important; /* Auburn Purple */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .leaflet-bar a {
+  background-color: #14213D !important;
+  color: #FFFFFF !important;
+  border-bottom: 1px solid #3F2A3B !important;
+}
+
+.dark .leaflet-bar a:hover {
+  background-color: #3F2A3B !important;
+  color: #FCA311 !important;
+}
+
+/* Deep Theme Global Interceptor and Overrides */
+.dark, .dark body {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+/* Base Canvas for Layout Container */
+.dark .bg-slate-950,
+.dark .bg-black,
+.dark \.bg-slate-950 {
+  background-color: #000000 !important;
+}
+
+/* Surfaces and Cards (Oxford Blue) */
+.dark .bg-slate-900,
+.dark .bg-slate-850,
+.dark .bg-white,
+.dark header,
+.dark aside,
+.dark table,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50,
+.dark select,
+.dark input,
+.dark textarea {
+  background-color: #14213D !important;
+  color: #FFFFFF !important;
+}
+
+/* Clear sub-elements custom backgrounds */
+.dark tr:hover,
+.dark .hover\:bg-slate-50\/30:hover,
+.dark .hover\:bg-slate-800\/25:hover,
+.dark .hover\:bg-slate-800\/20:hover {
+  background-color: rgba(63, 42, 59, 0.25) !important; /* Auburn Plum translucent hover */
+}
+
+/* High Contrast Borders (Auburn / Deep Purple) */
+.dark .border-slate-800,
+.dark .border-slate-800\/60,
+.dark .border-slate-800\/80,
+.dark .border-slate-800\/40,
+.dark .border-slate-200,
+.dark .border-slate-100,
+.dark .border-white\/5,
+.dark .border,
+.dark border-slate-700,
+.dark table,
+.dark th,
+.dark td,
+.dark hr {
+  border-color: #3F2A3B !important;
+}
+
+/* Standard Highlight/Branding (Golden Orange FCA311) */
+.dark .text-orange-600,
+.dark .text-orange-550,
+.dark .text-orange-500,
+.dark .text-orange-400,
+.dark .text-orange-350,
+.dark .text-amber-600,
+.dark .border-orange-500,
+.dark .hover\:text-orange-500:hover,
+.dark .text-\[\#e85d04\] {
+  color: #FCA311 !important;
+}
+
+/* Input borders and ring focus highlights using Golden Orange and Auburn Plum */
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  border-color: #FCA311 !important;
+  box-shadow: 0 0 0 2px rgba(252, 163, 17, 0.2) !important;
+}
+
+/* dynamic badge colors, maps and borders */
+.dark .bg-orange-600,
+.dark .bg-orange-500,
+.dark .bg-orange-500\/10 {
+  background-color: #FCA311 !important;
+}
+
+.dark .bg-orange-650,
+.dark .bg-red-650,
+.dark .bg-red-600,
+.dark .text-red-500,
+.dark .text-red-600 {
+  color: #FFFFFF !important;
+  background-color: #dc2626 !important;
+}
+
+/* Primary buttons style overrides for Golden Orange with BLACK text for supreme accessibility */
+.dark button.bg-orange-600,
+.dark button.bg-orange-500,
+.dark .bg-orange-600,
+.dark .bg-orange-500 {
+  background-color: #FCA311 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+.dark button.bg-orange-600:hover,
+.dark button.bg-orange-500:hover,
+.dark .hover\:bg-orange-700:hover,
+.dark .bg-orange-700 {
+  background-color: #E2910C !important;
+  color: #000000 !important;
+}
+
+/* Text readable styles inside buttons and elements */
+.dark .text-slate-900,
+.dark .text-slate-950,
+.dark .text-slate-800,
+.dark .text-slate-100,
+.dark .text-slate-200,
+.dark .text-slate-300,
+.dark .text-slate-50,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #FFFFFF !important;
+}
+
+.dark .text-slate-400,
+.dark .text-slate-450,
+.dark .text-slate-500 {
+  color: #A5B4FC !important; /* Beautiful readable high-contrast indigo-tinted slate */
+}
+
+/* Badges and custom inline states mapped to Auburn/Deep Violet */
+.dark .bg-orange-50,
+.dark .bg-orange-950\/30,
+.dark .bg-orange-950\/20,
+.dark .bg-orange-500\/5,
+.dark [style*="background: rgb(255, 241, 230)"],
+.dark [style*="background: #fff1e6"],
+.dark [style*="background-color: rgba(232, 93, 4, 0.1)"]  {
+  background-color: #3F2A3B !important;
+  color: #FFFFFF !important;
+}
+
+.dark [style*="color: rgb(232, 93, 4)"],
+.dark [style*="color: #e85d04"],
+.dark [style*="color: #c44d00"],
+.dark .custom-leaflet-school-marker div > div {
+  color: #FCA311 !important;
+}
+
+.dark .custom-leaflet-school-marker div > div {
+  background-color: #FCA311 !important;
+}
+
+/* Dark theme stats items */
+.dark .bg-slate-50.dark\:bg-slate-950 {
+  background-color: #3F2A3B !important;
+  color: #FFFFFF !important;
+}
+
+
